@@ -1,6 +1,5 @@
 PACKAGE_NAME        := libPCM
-FILE                := $(CURDIR)/libPCM/include/libPCM.h
-VERSION             := $(shell cat ${FILE} | grep -e "@version")
+VERSION             := $(shell grep @version $(CURDIR)/libPCM/include/libPCM.h | echo | grep -o '[0-9]\.[0-9]\.[0-9]')
 CC                  := cc
 DESTINATION         := /usr/local/Packages/$(PACKAGE_NAME)
 BUILD_DIR           := $(CURDIR)/BUILD
@@ -27,8 +26,9 @@ release: $(CURDIR)/libPCM/src/libPCM.c
 	mkdir -p   $(BUILD_DIR)
 	mkdir -p   $(BUILD_LIB)
 	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libPCM/src/libPCM.c -o $(BUILD_LIB)/libPCM.o
-	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libPCM/src/WAVDecoder.c -o $(BUILD_LIB)/WAVDecoder.o
-	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libPCM/src/W64Decoder.c -o $(BUILD_LIB)/W64Decoder.o
+	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libPCM/src/Decode/AIFDecoder.c -o $(BUILD_LIB)/AIFDecoder.o
+	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libPCM/src/Decode/W64Decoder.c -o $(BUILD_LIB)/W64Decoder.o
+	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libPCM/src/Decode/WAVDecoder.c -o $(BUILD_LIB)/WAVDecoder.o
 	ar -crsu   $(BUILD_LIB)/libPCM.a $(BUILD_LIB)/*.o
 	ranlib -sf $(BUILD_LIB)/libPCM.a
 	strip	 $(BUILD_LIB)/libPCM.a
@@ -36,8 +36,9 @@ debug: $(CURDIR)/libPCM/src/libPCM.c
 	mkdir -p   $(BUILD_DIR)
 	mkdir -p   $(BUILD_LIB)
 	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libPCM/src/libPCM.c -o $(BUILD_LIB)/libPCM.o
-	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libPCM/src/WAVDecoder.c -o $(BUILD_LIB)/WAVDecoder.o
-	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libPCM/src/W64Decoder.c -o $(BUILD_LIB)/W64Decoder.o
+	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libPCM/src/Decode/AIFDecoder.c -o $(BUILD_LIB)/AIFDecoder.o
+	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libPCM/src/Decode/W64Decoder.c -o $(BUILD_LIB)/W64Decoder.o
+	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libPCM/src/Decode/WAVDecoder.c -o $(BUILD_LIB)/WAVDecoder.o
 	ar -crsu   $(BUILD_LIB)/libPCM.a $(BUILD_LIB)/*.o
 	ranlib -sf $(BUILD_LIB)/libPCM.a
 install:
