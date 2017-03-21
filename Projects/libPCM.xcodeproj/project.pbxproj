@@ -7,20 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2CE3123D1E7FBA5100E8A4E1 /* WAVEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3123A1E7FBA5100E8A4E1 /* WAVEncoder.c */; };
-		2CE3123E1E7FBA5100E8A4E1 /* W64Encoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3123B1E7FBA5100E8A4E1 /* W64Encoder.c */; };
-		2CE3123F1E7FBA5100E8A4E1 /* AIFEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3123C1E7FBA5100E8A4E1 /* AIFEncoder.c */; };
-		2CE312431E7FBA6200E8A4E1 /* WAVDecoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE312401E7FBA6200E8A4E1 /* WAVDecoder.c */; };
-		2CE312441E7FBA6200E8A4E1 /* W64Decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE312411E7FBA6200E8A4E1 /* W64Decoder.c */; };
-		2CE312451E7FBA6200E8A4E1 /* AIFDecoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE312421E7FBA6200E8A4E1 /* AIFDecoder.c */; };
-		2CE312481E7FBA8500E8A4E1 /* libPCM.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE312471E7FBA8500E8A4E1 /* libPCM.c */; };
-		2CE3124C1E7FBA9900E8A4E1 /* AIFCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE312491E7FBA9900E8A4E1 /* AIFCommon.h */; };
-		2CE3124D1E7FBA9900E8A4E1 /* W64Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE3124A1E7FBA9900E8A4E1 /* W64Common.h */; };
-		2CE3124E1E7FBA9900E8A4E1 /* WAVCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE3124B1E7FBA9900E8A4E1 /* WAVCommon.h */; };
-		2CE312501E7FBAA200E8A4E1 /* libPCM.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE3124F1E7FBAA200E8A4E1 /* libPCM.h */; };
+		2C30655D1E80906C009F1A54 /* WAVDecoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE312401E7FBA6200E8A4E1 /* WAVDecoder.c */; };
+		2C30655E1E80906F009F1A54 /* W64Decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE312411E7FBA6200E8A4E1 /* W64Decoder.c */; };
+		2C30655F1E809072009F1A54 /* AIFDecoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE312421E7FBA6200E8A4E1 /* AIFDecoder.c */; };
+		2C3065601E809076009F1A54 /* WAVEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3123A1E7FBA5100E8A4E1 /* WAVEncoder.c */; };
+		2C3065611E809079009F1A54 /* W64Encoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3123B1E7FBA5100E8A4E1 /* W64Encoder.c */; };
+		2C3065621E80907C009F1A54 /* AIFEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3123C1E7FBA5100E8A4E1 /* AIFEncoder.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C3065591E809042009F1A54 /* liblibPCM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibPCM.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE3123A1E7FBA5100E8A4E1 /* WAVEncoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = WAVEncoder.c; path = ../libPCM/src/Encode/WAVEncoder.c; sourceTree = "<group>"; };
 		2CE3123B1E7FBA5100E8A4E1 /* W64Encoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = W64Encoder.c; path = ../libPCM/src/Encode/W64Encoder.c; sourceTree = "<group>"; };
 		2CE3123C1E7FBA5100E8A4E1 /* AIFEncoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = AIFEncoder.c; path = ../libPCM/src/Encode/AIFEncoder.c; sourceTree = "<group>"; };
@@ -32,11 +28,10 @@
 		2CE3124A1E7FBA9900E8A4E1 /* W64Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W64Common.h; path = ../libPCM/include/W64Common.h; sourceTree = "<group>"; };
 		2CE3124B1E7FBA9900E8A4E1 /* WAVCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WAVCommon.h; path = ../libPCM/include/WAVCommon.h; sourceTree = "<group>"; };
 		2CE3124F1E7FBAA200E8A4E1 /* libPCM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libPCM.h; path = ../libPCM/include/libPCM.h; sourceTree = "<group>"; };
-		2CE851771DA99758004F3B90 /* libPCM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPCM.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2CE851741DA99758004F3B90 /* Frameworks */ = {
+		2C3065561E809042009F1A54 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -49,9 +44,9 @@
 		2CE312381E7FBA3500E8A4E1 /* Decode */ = {
 			isa = PBXGroup;
 			children = (
+				2CE312421E7FBA6200E8A4E1 /* AIFDecoder.c */,
 				2CE312401E7FBA6200E8A4E1 /* WAVDecoder.c */,
 				2CE312411E7FBA6200E8A4E1 /* W64Decoder.c */,
-				2CE312421E7FBA6200E8A4E1 /* AIFDecoder.c */,
 			);
 			name = Decode;
 			sourceTree = "<group>";
@@ -59,9 +54,9 @@
 		2CE312391E7FBA3B00E8A4E1 /* Encode */ = {
 			isa = PBXGroup;
 			children = (
+				2CE3123C1E7FBA5100E8A4E1 /* AIFEncoder.c */,
 				2CE3123A1E7FBA5100E8A4E1 /* WAVEncoder.c */,
 				2CE3123B1E7FBA5100E8A4E1 /* W64Encoder.c */,
-				2CE3123C1E7FBA5100E8A4E1 /* AIFEncoder.c */,
 			);
 			name = Encode;
 			sourceTree = "<group>";
@@ -77,7 +72,7 @@
 		2CE851781DA99758004F3B90 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2CE851771DA99758004F3B90 /* libPCM.a */,
+				2C3065591E809042009F1A54 /* liblibPCM.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,35 +110,31 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2CE851751DA99758004F3B90 /* Headers */ = {
+		2C3065571E809042009F1A54 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CE3124C1E7FBA9900E8A4E1 /* AIFCommon.h in Headers */,
-				2CE312501E7FBAA200E8A4E1 /* libPCM.h in Headers */,
-				2CE3124E1E7FBA9900E8A4E1 /* WAVCommon.h in Headers */,
-				2CE3124D1E7FBA9900E8A4E1 /* W64Common.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2CE851761DA99758004F3B90 /* PCM */ = {
+		2C3065581E809042009F1A54 /* libPCM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2CE8517B1DA99758004F3B90 /* Build configuration list for PBXNativeTarget "PCM" */;
+			buildConfigurationList = 2C30655A1E809042009F1A54 /* Build configuration list for PBXNativeTarget "libPCM" */;
 			buildPhases = (
-				2CE851731DA99758004F3B90 /* Sources */,
-				2CE851741DA99758004F3B90 /* Frameworks */,
-				2CE851751DA99758004F3B90 /* Headers */,
+				2C3065551E809042009F1A54 /* Sources */,
+				2C3065561E809042009F1A54 /* Frameworks */,
+				2C3065571E809042009F1A54 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = PCM;
-			productName = PCM;
-			productReference = 2CE851771DA99758004F3B90 /* libPCM.a */;
+			name = libPCM;
+			productName = libPCM;
+			productReference = 2C3065591E809042009F1A54 /* liblibPCM.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -155,14 +146,14 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Marcus Johnson";
 				TargetAttributes = {
-					2CE851761DA99758004F3B90 = {
-						CreatedOnToolsVersion = 8.0;
+					2C3065581E809042009F1A54 = {
+						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 628J9L7WK5;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 2CE851721DA99758004F3B90 /* Build configuration list for PBXProject "PCM" */;
+			buildConfigurationList = 2CE851721DA99758004F3B90 /* Build configuration list for PBXProject "libPCM" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -174,29 +165,54 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2CE851761DA99758004F3B90 /* PCM */,
+				2C3065581E809042009F1A54 /* libPCM */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2CE851731DA99758004F3B90 /* Sources */ = {
+		2C3065551E809042009F1A54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CE3123D1E7FBA5100E8A4E1 /* WAVEncoder.c in Sources */,
-				2CE312431E7FBA6200E8A4E1 /* WAVDecoder.c in Sources */,
-				2CE3123F1E7FBA5100E8A4E1 /* AIFEncoder.c in Sources */,
-				2CE312481E7FBA8500E8A4E1 /* libPCM.c in Sources */,
-				2CE312451E7FBA6200E8A4E1 /* AIFDecoder.c in Sources */,
-				2CE312441E7FBA6200E8A4E1 /* W64Decoder.c in Sources */,
-				2CE3123E1E7FBA5100E8A4E1 /* W64Encoder.c in Sources */,
+				2C30655F1E809072009F1A54 /* AIFDecoder.c in Sources */,
+				2C30655E1E80906F009F1A54 /* W64Decoder.c in Sources */,
+				2C30655D1E80906C009F1A54 /* WAVDecoder.c in Sources */,
+				2C3065621E80907C009F1A54 /* AIFEncoder.c in Sources */,
+				2C3065601E809076009F1A54 /* WAVEncoder.c in Sources */,
+				2C3065611E809079009F1A54 /* W64Encoder.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		2C30655B1E809042009F1A54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				DEVELOPMENT_TEAM = 628J9L7WK5;
+				EXECUTABLE_PREFIX = lib;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2C30655C1E809042009F1A54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				DEVELOPMENT_TEAM = 628J9L7WK5;
+				EXECUTABLE_PREFIX = lib;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		2CE851791DA99758004F3B90 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -291,39 +307,22 @@
 			};
 			name = Release;
 		};
-		2CE8517C1DA99758004F3B90 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				EXECUTABLE_PREFIX = lib;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		2CE8517D1DA99758004F3B90 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				EXECUTABLE_PREFIX = lib;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2CE851721DA99758004F3B90 /* Build configuration list for PBXProject "PCM" */ = {
+		2C30655A1E809042009F1A54 /* Build configuration list for PBXNativeTarget "libPCM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C30655B1E809042009F1A54 /* Debug */,
+				2C30655C1E809042009F1A54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2CE851721DA99758004F3B90 /* Build configuration list for PBXProject "libPCM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2CE851791DA99758004F3B90 /* Debug */,
 				2CE8517A1DA99758004F3B90 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2CE8517B1DA99758004F3B90 /* Build configuration list for PBXNativeTarget "PCM" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2CE8517C1DA99758004F3B90 /* Debug */,
-				2CE8517D1DA99758004F3B90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
