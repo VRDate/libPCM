@@ -13,6 +13,7 @@
 		2C3065601E809076009F1A54 /* WAVEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3123A1E7FBA5100E8A4E1 /* WAVEncoder.c */; };
 		2C3065611E809079009F1A54 /* W64Encoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3123B1E7FBA5100E8A4E1 /* W64Encoder.c */; };
 		2C3065621E80907C009F1A54 /* AIFEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3123C1E7FBA5100E8A4E1 /* AIFEncoder.c */; };
+		2CC61B771E84685A0031E649 /* libPCM.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE312471E7FBA8500E8A4E1 /* libPCM.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -239,6 +240,7 @@
 				2C30655F1E809072009F1A54 /* AIFDecoder.c in Sources */,
 				2C30655E1E80906F009F1A54 /* W64Decoder.c in Sources */,
 				2C30655D1E80906C009F1A54 /* WAVDecoder.c in Sources */,
+				2CC61B771E84685A0031E649 /* libPCM.c in Sources */,
 				2C3065621E80907C009F1A54 /* AIFEncoder.c in Sources */,
 				2C3065601E809076009F1A54 /* WAVEncoder.c in Sources */,
 				2C3065611E809079009F1A54 /* W64Encoder.c in Sources */,
