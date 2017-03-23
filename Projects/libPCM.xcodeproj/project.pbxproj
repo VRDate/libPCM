@@ -16,7 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C3065591E809042009F1A54 /* liblibPCM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibPCM.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C3065591E809042009F1A54 /* libPCM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPCM.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CCACEBE1E841BED00F14570 /* PCMTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PCMTypes.h; path = ../libPCM/include/PCMTypes.h; sourceTree = "<group>"; };
 		2CE3123A1E7FBA5100E8A4E1 /* WAVEncoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = WAVEncoder.c; path = ../libPCM/src/Encode/WAVEncoder.c; sourceTree = "<group>"; };
 		2CE3123B1E7FBA5100E8A4E1 /* W64Encoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = W64Encoder.c; path = ../libPCM/src/Encode/W64Encoder.c; sourceTree = "<group>"; };
 		2CE3123C1E7FBA5100E8A4E1 /* AIFEncoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = AIFEncoder.c; path = ../libPCM/src/Encode/AIFEncoder.c; sourceTree = "<group>"; };
@@ -72,7 +73,7 @@
 		2CE851781DA99758004F3B90 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C3065591E809042009F1A54 /* liblibPCM.a */,
+				2C3065591E809042009F1A54 /* libPCM.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,6 +104,7 @@
 				2CE312491E7FBA9900E8A4E1 /* AIFCommon.h */,
 				2CE3124A1E7FBA9900E8A4E1 /* W64Common.h */,
 				2CE3124B1E7FBA9900E8A4E1 /* WAVCommon.h */,
+				2CCACEBE1E841BED00F14570 /* PCMTypes.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -134,7 +136,7 @@
 			);
 			name = libPCM;
 			productName = libPCM;
-			productReference = 2C3065591E809042009F1A54 /* liblibPCM.a */;
+			productReference = 2C3065591E809042009F1A54 /* libPCM.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -190,11 +192,11 @@
 		2C30655B1E809042009F1A54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "-";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = NO;
+				CODE_SIGN_IDENTITY = "Mac Developer: bumblebritches571@gmail.com (JLFPN349F8)";
 				DEVELOPMENT_TEAM = 628J9L7WK5;
-				EXECUTABLE_PREFIX = lib;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				EXECUTABLE_PREFIX = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -203,11 +205,11 @@
 		2C30655C1E809042009F1A54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "-";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = NO;
+				CODE_SIGN_IDENTITY = "Mac Developer: bumblebritches571@gmail.com (JLFPN349F8)";
 				DEVELOPMENT_TEAM = 628J9L7WK5;
-				EXECUTABLE_PREFIX = lib;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				EXECUTABLE_PREFIX = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -218,6 +220,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -268,6 +271,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -317,6 +321,7 @@
 				2C30655C1E809042009F1A54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2CE851721DA99758004F3B90 /* Build configuration list for PBXProject "libPCM" */ = {
 			isa = XCConfigurationList;
