@@ -13,6 +13,7 @@
 		2C3065601E809076009F1A54 /* WAVEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3123A1E7FBA5100E8A4E1 /* WAVEncoder.c */; };
 		2C3065611E809079009F1A54 /* W64Encoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3123B1E7FBA5100E8A4E1 /* W64Encoder.c */; };
 		2C3065621E80907C009F1A54 /* AIFEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3123C1E7FBA5100E8A4E1 /* AIFEncoder.c */; };
+		2CBF56CD1E84C54100453C02 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6951E8453E5005DEE50 /* libBitIO.a */; };
 		2CC61B771E84685A0031E649 /* libPCM.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE312471E7FBA8500E8A4E1 /* libPCM.c */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CBF56CD1E84C54100453C02 /* libBitIO.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
