@@ -13,6 +13,11 @@
 		2C3065601E809076009F1A54 /* WAVEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3123A1E7FBA5100E8A4E1 /* WAVEncoder.c */; };
 		2C3065611E809079009F1A54 /* W64Encoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3123B1E7FBA5100E8A4E1 /* W64Encoder.c */; };
 		2C3065621E80907C009F1A54 /* AIFEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3123C1E7FBA5100E8A4E1 /* AIFEncoder.c */; };
+		2CAB0F8A1E948126007FAB96 /* W64Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE3124A1E7FBA9900E8A4E1 /* W64Common.h */; };
+		2CAB0F8D1E948130007FAB96 /* WAVCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE3124B1E7FBA9900E8A4E1 /* WAVCommon.h */; };
+		2CAB0F8E1E948133007FAB96 /* PCMTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CCACEBE1E841BED00F14570 /* PCMTypes.h */; };
+		2CAB0F8F1E948135007FAB96 /* AIFCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE312491E7FBA9900E8A4E1 /* AIFCommon.h */; };
+		2CAB0F901E948138007FAB96 /* libPCM.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE3124F1E7FBAA200E8A4E1 /* libPCM.h */; };
 		2CBF56CD1E84C54100453C02 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6951E8453E5005DEE50 /* libBitIO.a */; };
 		2CC61B771E84685A0031E649 /* libPCM.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE312471E7FBA8500E8A4E1 /* libPCM.c */; };
 /* End PBXBuildFile section */
@@ -155,6 +160,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CAB0F8E1E948133007FAB96 /* PCMTypes.h in Headers */,
+				2CAB0F8D1E948130007FAB96 /* WAVCommon.h in Headers */,
+				2CAB0F8F1E948135007FAB96 /* AIFCommon.h in Headers */,
+				2CAB0F901E948138007FAB96 /* libPCM.h in Headers */,
+				2CAB0F8A1E948126007FAB96 /* W64Common.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
