@@ -20,16 +20,10 @@
 		2CAB0F901E948138007FAB96 /* libPCM.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE3124F1E7FBAA200E8A4E1 /* libPCM.h */; };
 		2CBF56CD1E84C54100453C02 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6951E8453E5005DEE50 /* libBitIO.a */; };
 		2CC61B771E84685A0031E649 /* libPCM.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE312471E7FBA8500E8A4E1 /* libPCM.c */; };
+		2CD232291EB0ECED005E4D8C /* TrimSilence.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD232281EB0ECED005E4D8C /* TrimSilence.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2C0FB6921E8453E5005DEE50 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2C0FB68D1E8453E5005DEE50 /* BitIO.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2C419FC71E5B001E00FC804F;
-			remoteInfo = "Test-BitIO";
-		};
 		2C0FB6941E8453E5005DEE50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2C0FB68D1E8453E5005DEE50 /* BitIO.xcodeproj */;
@@ -39,10 +33,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2CD2321F1EB0ECDD005E4D8C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2C0FB68D1E8453E5005DEE50 /* BitIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BitIO.xcodeproj; path = ../Dependencies/BitIO/Projects/BitIO.xcodeproj; sourceTree = "<group>"; };
 		2C3065591E809042009F1A54 /* libPCM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPCM.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CCACEBE1E841BED00F14570 /* PCMTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PCMTypes.h; path = ../libPCM/include/PCMTypes.h; sourceTree = "<group>"; };
+		2CD232211EB0ECDD005E4D8C /* TrimSilence */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TrimSilence; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CD232281EB0ECED005E4D8C /* TrimSilence.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = TrimSilence.c; path = ../TrimSilence/TrimSilence.c; sourceTree = "<group>"; };
 		2CE3123A1E7FBA5100E8A4E1 /* WAVEncoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = WAVEncoder.c; path = ../libPCM/src/Encode/WAVEncoder.c; sourceTree = "<group>"; };
 		2CE3123B1E7FBA5100E8A4E1 /* W64Encoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = W64Encoder.c; path = ../libPCM/src/Encode/W64Encoder.c; sourceTree = "<group>"; };
 		2CE3123C1E7FBA5100E8A4E1 /* AIFEncoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = AIFEncoder.c; path = ../libPCM/src/Encode/AIFEncoder.c; sourceTree = "<group>"; };
@@ -65,6 +73,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2CD2321E1EB0ECDD005E4D8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -79,10 +94,17 @@
 		2C0FB68E1E8453E5005DEE50 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C0FB6931E8453E5005DEE50 /* Test-BitIO */,
 				2C0FB6951E8453E5005DEE50 /* libBitIO.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2CD2321B1EB0ECB2005E4D8C /* TrimSilence */ = {
+			isa = PBXGroup;
+			children = (
+				2CD232281EB0ECED005E4D8C /* TrimSilence.c */,
+			);
+			name = TrimSilence;
 			sourceTree = "<group>";
 		};
 		2CE312381E7FBA3500E8A4E1 /* Decode */ = {
@@ -110,6 +132,7 @@
 			children = (
 				2C0FB68C1E8453D5005DEE50 /* Dependencies */,
 				2CF204121E319AD500C086C8 /* libPCM */,
+				2CD2321B1EB0ECB2005E4D8C /* TrimSilence */,
 				2CE851781DA99758004F3B90 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -118,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				2C3065591E809042009F1A54 /* libPCM.a */,
+				2CD232211EB0ECDD005E4D8C /* TrimSilence */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,6 +212,23 @@
 			productReference = 2C3065591E809042009F1A54 /* libPCM.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		2CD232201EB0ECDD005E4D8C /* TrimSilence */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CD232251EB0ECDD005E4D8C /* Build configuration list for PBXNativeTarget "TrimSilence" */;
+			buildPhases = (
+				2CD2321D1EB0ECDD005E4D8C /* Sources */,
+				2CD2321E1EB0ECDD005E4D8C /* Frameworks */,
+				2CD2321F1EB0ECDD005E4D8C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TrimSilence;
+			productName = TrimSilence;
+			productReference = 2CD232211EB0ECDD005E4D8C /* TrimSilence */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -199,6 +240,11 @@
 				TargetAttributes = {
 					2C3065581E809042009F1A54 = {
 						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 628J9L7WK5;
+						ProvisioningStyle = Automatic;
+					};
+					2CD232201EB0ECDD005E4D8C = {
+						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 628J9L7WK5;
 						ProvisioningStyle = Automatic;
 					};
@@ -223,18 +269,12 @@
 			projectRoot = "";
 			targets = (
 				2C3065581E809042009F1A54 /* libPCM */,
+				2CD232201EB0ECDD005E4D8C /* TrimSilence */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2C0FB6931E8453E5005DEE50 /* Test-BitIO */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "Test-BitIO";
-			remoteRef = 2C0FB6921E8453E5005DEE50 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		2C0FB6951E8453E5005DEE50 /* libBitIO.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -256,6 +296,14 @@
 				2C3065621E80907C009F1A54 /* AIFEncoder.c in Sources */,
 				2C3065601E809076009F1A54 /* WAVEncoder.c in Sources */,
 				2C3065611E809079009F1A54 /* W64Encoder.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CD2321D1EB0ECDD005E4D8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CD232291EB0ECED005E4D8C /* TrimSilence.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +331,30 @@
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				EXECUTABLE_PREFIX = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2CD232261EB0ECDD005E4D8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				DEVELOPMENT_TEAM = 628J9L7WK5;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2CD232271EB0ECDD005E4D8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				DEVELOPMENT_TEAM = 628J9L7WK5;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -395,6 +467,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		2CD232251EB0ECDD005E4D8C /* Build configuration list for PBXNativeTarget "TrimSilence" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CD232261EB0ECDD005E4D8C /* Debug */,
+				2CD232271EB0ECDD005E4D8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		2CE851721DA99758004F3B90 /* Build configuration list for PBXProject "libPCM" */ = {
 			isa = XCConfigurationList;
