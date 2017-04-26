@@ -49,14 +49,6 @@ extern "C" {
         PCMFile            *PCM  = InitPCMFile();
         
         IdentifyPCMFile(BitI, PCM);
-        
-        ReadWAVHeader(IO, WAV);
-        ReadPCM(IO, WAV, PCM);
-        FindFirstGoodSample(WAV, Silence, SilenceThreshold, PCM);
-        FindLastGoodSample(WAV, Silence, SilenceThreshold, PCM);
-        CoalesceChannels(WAV, Silence);
-        WriteWAVHeader(IO, WAV, Silence);
-        WritePCM(IO, WAV, Silence, PCM);
     }
     
     return EXIT_SUCCESS;
