@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C30655D1E80906C009F1A54 /* WAVDecoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE312401E7FBA6200E8A4E1 /* WAVDecoder.c */; };
-		2C30655E1E80906F009F1A54 /* W64Decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE312411E7FBA6200E8A4E1 /* W64Decoder.c */; };
-		2C30655F1E809072009F1A54 /* AIFDecoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE312421E7FBA6200E8A4E1 /* AIFDecoder.c */; };
-		2C3065601E809076009F1A54 /* WAVEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3123A1E7FBA5100E8A4E1 /* WAVEncoder.c */; };
-		2C3065611E809079009F1A54 /* W64Encoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3123B1E7FBA5100E8A4E1 /* W64Encoder.c */; };
-		2C3065621E80907C009F1A54 /* AIFEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3123C1E7FBA5100E8A4E1 /* AIFEncoder.c */; };
 		2CAB0F8A1E948126007FAB96 /* W64Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE3124A1E7FBA9900E8A4E1 /* W64Common.h */; };
 		2CAB0F8D1E948130007FAB96 /* WAVCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE3124B1E7FBA9900E8A4E1 /* WAVCommon.h */; };
 		2CAB0F8E1E948133007FAB96 /* PCMTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CCACEBE1E841BED00F14570 /* PCMTypes.h */; };
@@ -21,6 +15,13 @@
 		2CBF56CD1E84C54100453C02 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6951E8453E5005DEE50 /* libBitIO.a */; };
 		2CC61B771E84685A0031E649 /* libPCM.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE312471E7FBA8500E8A4E1 /* libPCM.c */; };
 		2CD232291EB0ECED005E4D8C /* TrimSilence.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD232281EB0ECED005E4D8C /* TrimSilence.c */; };
+		2CD4D5F71EC31D76007F0619 /* AIFDecoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4D5F41EC31D76007F0619 /* AIFDecoder.c */; };
+		2CD4D5F81EC31D76007F0619 /* W64Decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4D5F51EC31D76007F0619 /* W64Decoder.c */; };
+		2CD4D5F91EC31D76007F0619 /* WAVDecoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4D5F61EC31D76007F0619 /* WAVDecoder.c */; };
+		2CD4D5FD1EC31D82007F0619 /* AIFEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4D5FA1EC31D82007F0619 /* AIFEncoder.c */; };
+		2CD4D5FE1EC31D82007F0619 /* W64Encoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4D5FB1EC31D82007F0619 /* W64Encoder.c */; };
+		2CD4D5FF1EC31D82007F0619 /* WAVEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4D5FC1EC31D82007F0619 /* WAVEncoder.c */; };
+		2CD4D6001EC31E98007F0619 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3065591E809042009F1A54 /* libPCM.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,12 +52,12 @@
 		2CCACEBE1E841BED00F14570 /* PCMTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PCMTypes.h; path = ../libPCM/include/PCMTypes.h; sourceTree = "<group>"; };
 		2CD232211EB0ECDD005E4D8C /* TrimSilence */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TrimSilence; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD232281EB0ECED005E4D8C /* TrimSilence.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = TrimSilence.c; path = ../TrimSilence/TrimSilence.c; sourceTree = "<group>"; };
-		2CE3123A1E7FBA5100E8A4E1 /* WAVEncoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = WAVEncoder.c; path = ../libPCM/src/Encode/WAVEncoder.c; sourceTree = "<group>"; };
-		2CE3123B1E7FBA5100E8A4E1 /* W64Encoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = W64Encoder.c; path = ../libPCM/src/Encode/W64Encoder.c; sourceTree = "<group>"; };
-		2CE3123C1E7FBA5100E8A4E1 /* AIFEncoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = AIFEncoder.c; path = ../libPCM/src/Encode/AIFEncoder.c; sourceTree = "<group>"; };
-		2CE312401E7FBA6200E8A4E1 /* WAVDecoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = WAVDecoder.c; path = ../libPCM/src/Decode/WAVDecoder.c; sourceTree = "<group>"; };
-		2CE312411E7FBA6200E8A4E1 /* W64Decoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = W64Decoder.c; path = ../libPCM/src/Decode/W64Decoder.c; sourceTree = "<group>"; };
-		2CE312421E7FBA6200E8A4E1 /* AIFDecoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = AIFDecoder.c; path = ../libPCM/src/Decode/AIFDecoder.c; sourceTree = "<group>"; };
+		2CD4D5F41EC31D76007F0619 /* AIFDecoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = AIFDecoder.c; path = ../libPCM/src/AIFDecoder.c; sourceTree = "<group>"; };
+		2CD4D5F51EC31D76007F0619 /* W64Decoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = W64Decoder.c; path = ../libPCM/src/W64Decoder.c; sourceTree = "<group>"; };
+		2CD4D5F61EC31D76007F0619 /* WAVDecoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = WAVDecoder.c; path = ../libPCM/src/WAVDecoder.c; sourceTree = "<group>"; };
+		2CD4D5FA1EC31D82007F0619 /* AIFEncoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = AIFEncoder.c; path = ../libPCM/src/AIFEncoder.c; sourceTree = "<group>"; };
+		2CD4D5FB1EC31D82007F0619 /* W64Encoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = W64Encoder.c; path = ../libPCM/src/W64Encoder.c; sourceTree = "<group>"; };
+		2CD4D5FC1EC31D82007F0619 /* WAVEncoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = WAVEncoder.c; path = ../libPCM/src/WAVEncoder.c; sourceTree = "<group>"; };
 		2CE312471E7FBA8500E8A4E1 /* libPCM.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libPCM.c; path = ../libPCM/src/libPCM.c; sourceTree = "<group>"; };
 		2CE312491E7FBA9900E8A4E1 /* AIFCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIFCommon.h; path = ../libPCM/include/AIFCommon.h; sourceTree = "<group>"; };
 		2CE3124A1E7FBA9900E8A4E1 /* W64Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W64Common.h; path = ../libPCM/include/W64Common.h; sourceTree = "<group>"; };
@@ -77,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CD4D6001EC31E98007F0619 /* libPCM.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,9 +112,9 @@
 		2CE312381E7FBA3500E8A4E1 /* Decode */ = {
 			isa = PBXGroup;
 			children = (
-				2CE312421E7FBA6200E8A4E1 /* AIFDecoder.c */,
-				2CE312401E7FBA6200E8A4E1 /* WAVDecoder.c */,
-				2CE312411E7FBA6200E8A4E1 /* W64Decoder.c */,
+				2CD4D5F41EC31D76007F0619 /* AIFDecoder.c */,
+				2CD4D5F51EC31D76007F0619 /* W64Decoder.c */,
+				2CD4D5F61EC31D76007F0619 /* WAVDecoder.c */,
 			);
 			name = Decode;
 			sourceTree = "<group>";
@@ -120,9 +122,9 @@
 		2CE312391E7FBA3B00E8A4E1 /* Encode */ = {
 			isa = PBXGroup;
 			children = (
-				2CE3123C1E7FBA5100E8A4E1 /* AIFEncoder.c */,
-				2CE3123A1E7FBA5100E8A4E1 /* WAVEncoder.c */,
-				2CE3123B1E7FBA5100E8A4E1 /* W64Encoder.c */,
+				2CD4D5FA1EC31D82007F0619 /* AIFEncoder.c */,
+				2CD4D5FB1EC31D82007F0619 /* W64Encoder.c */,
+				2CD4D5FC1EC31D82007F0619 /* WAVEncoder.c */,
 			);
 			name = Encode;
 			sourceTree = "<group>";
@@ -289,13 +291,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C30655F1E809072009F1A54 /* AIFDecoder.c in Sources */,
-				2C30655E1E80906F009F1A54 /* W64Decoder.c in Sources */,
-				2C30655D1E80906C009F1A54 /* WAVDecoder.c in Sources */,
 				2CC61B771E84685A0031E649 /* libPCM.c in Sources */,
-				2C3065621E80907C009F1A54 /* AIFEncoder.c in Sources */,
-				2C3065601E809076009F1A54 /* WAVEncoder.c in Sources */,
-				2C3065611E809079009F1A54 /* W64Encoder.c in Sources */,
+				2CD4D5FF1EC31D82007F0619 /* WAVEncoder.c in Sources */,
+				2CD4D5F91EC31D76007F0619 /* WAVDecoder.c in Sources */,
+				2CD4D5F71EC31D76007F0619 /* AIFDecoder.c in Sources */,
+				2CD4D5F81EC31D76007F0619 /* W64Decoder.c in Sources */,
+				2CD4D5FE1EC31D82007F0619 /* W64Encoder.c in Sources */,
+				2CD4D5FD1EC31D82007F0619 /* AIFEncoder.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +316,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = NO;
-				CODE_SIGN_IDENTITY = "Mac Developer: bumblebritches571@gmail.com (JLFPN349F8)";
+				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				EXECUTABLE_PREFIX = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
@@ -327,7 +329,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = NO;
-				CODE_SIGN_IDENTITY = "Mac Developer: bumblebritches571@gmail.com (JLFPN349F8)";
+				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				EXECUTABLE_PREFIX = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
@@ -340,7 +342,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
@@ -352,7 +354,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
@@ -383,7 +385,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer: bumblebritches571@gmail.com (JLFPN349F8)";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -434,7 +436,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer: bumblebritches571@gmail.com (JLFPN349F8)";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -475,6 +477,7 @@
 				2CD232271EB0ECDD005E4D8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2CE851721DA99758004F3B90 /* Build configuration list for PBXProject "libPCM" */ = {
 			isa = XCConfigurationList;
