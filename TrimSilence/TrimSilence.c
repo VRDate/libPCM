@@ -1,4 +1,5 @@
 #include "../libPCM/include/libPCM.h"
+#include "../Dependencies/BitIO/libBitIO/include/CommandLineInterface.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -6,42 +7,53 @@ extern "C" {
     
 #define TrimSilenceVersion "0.1.0"
     
-    CommandLineOptions *SetTrimSilenceOptions(void) {
-        CommandLineOptions     *CMD = InitCommandLineOptions(4);
+    enum CommandLineSwitchNames {
+        Input   = 0,
+        Output  = 1,
+        Silence = 2,
+        Help    = 3,
+    };
+    
+    CommandLineInterface *SetTrimSilenceOptions(void) {
+        CommandLineInterface     *CLI = InitCommandLineInterface(4);
         
-        SetCMDName(CMD, "TrimSilence");
-        SetCMDVersion(CMD, TrimSilenceVersion);
-        SetCMDAuthor(CMD, "BumbleBritches57");
-        SetCMDCopyright(CMD, "2017-2017");
-        SetCMDDescription(CMD, "PCM silence remover written from scratch in modern C");
-        SetCMDLicense(CMD, "Revised BSD (3 clause)", false);
-        SetCMDLicenseURL(CMD, "https://opensource.org/licenses/BSD-3-Clause", false);
-        SetCMDMinSwitches(CMD, 3);
+        SetCLIName(CLI, "TrimSilence");
+        SetCLIVersion(CLI, TrimSilenceVersion);
+        SetCLIAuthor(CLI, "BumbleBritches57");
+        SetCLICopyright(CLI, "2017-2017");
+        SetCLIDescription(CLI, "PCM silence remover written from scratch in modern C");
+        SetCLILicense(CLI, "Revised BSD (3 clause)", false);
+        SetCLILicenseURL(CLI, "https://opensource.org/licenses/BSD-3-Clause", false);
+        SetCLIMinSwitches(CLI, 3);
         
-        SetCMDSwitchFlag(CMD, 0, "Input", 5);
-        SetCMDSwitchDescription(CMD, 0, "Input file or stdin with: '-'\n");
-        SetCMDSwitchResultStatus(CMD, 0, false);
+        SetCLISwitchFlag(CLI, Input, "Input", 5);
+        SetCLISwitchDescription(CLI, Input, "Input file or stdin with: '-'\n");
+        SetCLISwitchResultStatus(CLI, Input, false);
         
-        SetCMDSwitchFlag(CMD, 1, "Output", 6);
-        SetCMDSwitchDescription(CMD, 1, "Output file or stdout with: '-'\n");
-        SetCMDSwitchResultStatus(CMD, 1, false);
+        SetCLISwitchFlag(CLI, Output, "Output", 6);
+        SetCLISwitchDescription(CLI, Output, "Output file or stdout with: '-'\n");
+        SetCLISwitchResultStatus(CLI, Output, false);
         
-        SetCMDSwitchFlag(CMD, 2, "Silence", 7);
-        SetCMDSwitchDescription(CMD, 2, "Set the threshhold, in dB or absolute value like: (-|--|/)Silence 12dB or: (-|--|/)Silence 0");
-        SetCMDSwitchResultStatus(CMD, 2, false);
+        SetCLISwitchFlag(CLI, Silence, "Silence", 7);
+        SetCLISwitchDescription(CLI, Silence, "Set the threshhold, in dB or absolute value like: (-|--|/)Silence 12dB or: (-|--|/)Silence 0");
+        SetCLISwitchResultStatus(CLI, Silence, false);
         
-        SetCMDSwitchFlag(CMD, 3, "Help", 4);
-        SetCMDSwitchDescription(CMD, 6, "Prints all the command line options");
-        SetCMDSwitchResultStatus(CMD, 6, true);
+        SetCLISwitchFlag(CLI, Help, "Help", 4);
+        SetCLISwitchDescription(CLI, Help, "Prints all the command line options");
+        SetCLISwitchResultStatus(CLI, Help, true);
         
-        return CMD;
+        return CLI;
     }
     
     int main(int argc, const char * argv[]) {
-        CommandLineOptions *CMD  = SetTrimSilenceOptions();
-        BitInput           *BitI = InitBitInput();
-        BitOutput          *BitO = InitBitOutput();
-        PCMFile            *PCM  = InitPCMFile();
+        CommandLineInterface *CLI  = SetTrimSilenceOptions();
+        ParseCommandLineArguments(CLI, argc, argv);
+        BitInput            *BitI  = InitBitInput();
+        BitOutput           *BitO  = InitBitOutput();
+        PCMFile             *PCM   = InitPCMFile();
+        
+        OpenInputFile(BitI, GetCLIArgumentResult(CLI, Input));
+        OpenOutputFile(BitO, GetCLIArgumentResult(CLI, Output));
         
         IdentifyPCMFile(BitI, PCM);
         
