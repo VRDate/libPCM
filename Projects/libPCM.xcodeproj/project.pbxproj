@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2CA3A9A01F0A37F0005771A2 /* PortableBitmapCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA3A99F1F0A37F0005771A2 /* PortableBitmapCommon.h */; };
+		2CA3A9A01F0A37F0005771A2 /* PXMCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA3A99F1F0A37F0005771A2 /* PXMCommon.h */; };
 		2CA3A9A21F0A3DC6005771A2 /* BMPCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA3A9A11F0A3DC6005771A2 /* BMPCommon.h */; };
 		2CAB0F8A1E948126007FAB96 /* W64Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE3124A1E7FBA9900E8A4E1 /* W64Common.h */; };
 		2CAB0F8D1E948130007FAB96 /* WAVCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE3124B1E7FBA9900E8A4E1 /* WAVCommon.h */; };
@@ -51,7 +51,7 @@
 /* Begin PBXFileReference section */
 		2C0FB68D1E8453E5005DEE50 /* BitIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BitIO.xcodeproj; path = ../Dependencies/BitIO/Projects/BitIO.xcodeproj; sourceTree = "<group>"; };
 		2C3065591E809042009F1A54 /* libPCM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPCM.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CA3A99F1F0A37F0005771A2 /* PortableBitmapCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PortableBitmapCommon.h; path = ../libPCM/include/PortableBitmapCommon.h; sourceTree = "<group>"; };
+		2CA3A99F1F0A37F0005771A2 /* PXMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXMCommon.h; path = ../libPCM/include/PXMCommon.h; sourceTree = "<group>"; };
 		2CA3A9A11F0A3DC6005771A2 /* BMPCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMPCommon.h; path = ../libPCM/include/BMPCommon.h; sourceTree = "<group>"; };
 		2CCACEBE1E841BED00F14570 /* PCMTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PCMTypes.h; path = ../libPCM/include/PCMTypes.h; sourceTree = "<group>"; };
 		2CD232211EB0ECDD005E4D8C /* TrimSilence */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TrimSilence; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,7 +118,7 @@
 		2CA3A99A1F0A3711005771A2 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				2CA3A99F1F0A37F0005771A2 /* PortableBitmapCommon.h */,
+				2CA3A99F1F0A37F0005771A2 /* PXMCommon.h */,
 				2CA3A9A11F0A3DC6005771A2 /* BMPCommon.h */,
 			);
 			name = Image;
@@ -244,7 +244,7 @@
 				2CAB0F8D1E948130007FAB96 /* WAVCommon.h in Headers */,
 				2CA3A9A21F0A3DC6005771A2 /* BMPCommon.h in Headers */,
 				2CAB0F8F1E948135007FAB96 /* AIFCommon.h in Headers */,
-				2CA3A9A01F0A37F0005771A2 /* PortableBitmapCommon.h in Headers */,
+				2CA3A9A01F0A37F0005771A2 /* PXMCommon.h in Headers */,
 				2CAB0F901E948138007FAB96 /* libPCM.h in Headers */,
 				2CAB0F8A1E948126007FAB96 /* W64Common.h in Headers */,
 			);
