@@ -52,7 +52,7 @@ extern "C" {
         BitOutput           *BitO  = InitBitOutput();
         PCMFile             *PCM   = InitPCMFile();
         
-        OpenInputFile(BitI, GetCLIArgumentResult(CLI, Input));
+        OpenInputFile(BitI, GetCLIArgumentResult(CLI, Input), false);
         OpenOutputFile(BitO, GetCLIArgumentResult(CLI, Output));
         
         IdentifyPCMFile(BitI, PCM);
