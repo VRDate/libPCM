@@ -1,5 +1,6 @@
+#include "../Dependencies/BitIO/libBitIO/include/CommandLineIO.h"
+
 #include "../libPCM/include/libPCM.h"
-#include "../Dependencies/BitIO/libBitIO/include/CommandLineInterface.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -14,21 +15,22 @@ extern "C" {
         Help    = 3,
     };
     
-    CommandLineInterface *SetTrimSilenceOptions(void) {
-        CommandLineInterface     *CLI = InitCommandLineInterface(4);
+    CommandLineIO *SetTrimSilenceOptions(void) {
+        CommandLineIO     *CLI = InitCommandLineIO(4);
         
         SetCLIName(CLI, "TrimSilence");
         SetCLIVersion(CLI, TrimSilenceVersion);
         SetCLIAuthor(CLI, "BumbleBritches57");
         SetCLICopyright(CLI, "2017-2017");
         SetCLIDescription(CLI, "PCM silence remover written from scratch in modern C");
-        SetCLILicense(CLI, "Revised BSD (3 clause)", false);
-        SetCLILicenseURL(CLI, "https://opensource.org/licenses/BSD-3-Clause", false);
+        SetCLILicense(CLI, "Revised BSD", NULL, false);
+        SetCLILicenseURL(CLI, "https://opensource.org/licenses/BSD-3-Clause");
         SetCLIMinSwitches(CLI, 3);
         
         SetCLISwitchFlag(CLI, Input, "Input", 5);
         SetCLISwitchDescription(CLI, Input, "Input file or stdin with: '-'\n");
         SetCLISwitchResultStatus(CLI, Input, false);
+        SetCLISwitchAsMain
         
         SetCLISwitchFlag(CLI, Output, "Output", 6);
         SetCLISwitchDescription(CLI, Output, "Output file or stdout with: '-'\n");
@@ -46,7 +48,7 @@ extern "C" {
     }
     
     int main(int argc, const char * argv[]) {
-        CommandLineInterface *CLI  = SetTrimSilenceOptions();
+        CommandLineIO *CLI  = SetTrimSilenceOptions();
         ParseCommandLineArguments(CLI, argc, argv);
         BitInput            *BitI  = InitBitInput();
         BitOutput           *BitO  = InitBitOutput();

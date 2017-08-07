@@ -7,22 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2CA3A9A01F0A37F0005771A2 /* PXMCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA3A99F1F0A37F0005771A2 /* PXMCommon.h */; };
-		2CA3A9A21F0A3DC6005771A2 /* BMPCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA3A9A11F0A3DC6005771A2 /* BMPCommon.h */; };
-		2CAB0F8A1E948126007FAB96 /* W64Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE3124A1E7FBA9900E8A4E1 /* W64Common.h */; };
-		2CAB0F8D1E948130007FAB96 /* WAVCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE3124B1E7FBA9900E8A4E1 /* WAVCommon.h */; };
-		2CAB0F8E1E948133007FAB96 /* PCMTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CCACEBE1E841BED00F14570 /* PCMTypes.h */; };
-		2CAB0F8F1E948135007FAB96 /* AIFCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE312491E7FBA9900E8A4E1 /* AIFCommon.h */; };
 		2CAB0F901E948138007FAB96 /* libPCM.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE3124F1E7FBAA200E8A4E1 /* libPCM.h */; };
 		2CBF56CD1E84C54100453C02 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6951E8453E5005DEE50 /* libBitIO.a */; };
-		2CC61B771E84685A0031E649 /* libPCM.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CE312471E7FBA8500E8A4E1 /* libPCM.c */; };
+		2CC490321F38094B00C71A65 /* W64Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CC4902F1F38094B00C71A65 /* W64Common.h */; };
+		2CC490331F38094B00C71A65 /* WAVCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CC490301F38094B00C71A65 /* WAVCommon.h */; };
+		2CC490341F38094B00C71A65 /* AIFCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CC490311F38094B00C71A65 /* AIFCommon.h */; };
+		2CC490371F38095700C71A65 /* PXMCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CC490351F38095700C71A65 /* PXMCommon.h */; };
+		2CC490381F38095700C71A65 /* BMPCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CC490361F38095700C71A65 /* BMPCommon.h */; };
+		2CC4903A1F38096300C71A65 /* libPCMTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CC490391F38096300C71A65 /* libPCMTypes.h */; };
+		2CC490431F3809E400C71A65 /* WAVDecoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4903D1F3809E400C71A65 /* WAVDecoder.c */; };
+		2CC490441F3809E400C71A65 /* W64Decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4903E1F3809E400C71A65 /* W64Decoder.c */; };
+		2CC490451F3809E400C71A65 /* W64Encoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4903F1F3809E400C71A65 /* W64Encoder.c */; };
+		2CC490461F3809E400C71A65 /* AIFDecoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CC490401F3809E400C71A65 /* AIFDecoder.c */; };
+		2CC490471F3809E400C71A65 /* AIFEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CC490411F3809E400C71A65 /* AIFEncoder.c */; };
+		2CC490481F3809E400C71A65 /* WAVEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CC490421F3809E400C71A65 /* WAVEncoder.c */; };
+		2CC4904D1F3809EC00C71A65 /* BMPDecoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CC490491F3809EC00C71A65 /* BMPDecoder.c */; };
+		2CC4904E1F3809EC00C71A65 /* BMPEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4904A1F3809EC00C71A65 /* BMPEncoder.c */; };
+		2CC4904F1F3809EC00C71A65 /* PXMDecoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4904B1F3809EC00C71A65 /* PXMDecoder.c */; };
+		2CC490501F3809EC00C71A65 /* PXMEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4904C1F3809EC00C71A65 /* PXMEncoder.c */; };
 		2CD232291EB0ECED005E4D8C /* TrimSilence.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD232281EB0ECED005E4D8C /* TrimSilence.c */; };
-		2CD4D5F71EC31D76007F0619 /* AIFDecoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4D5F41EC31D76007F0619 /* AIFDecoder.c */; };
-		2CD4D5F81EC31D76007F0619 /* W64Decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4D5F51EC31D76007F0619 /* W64Decoder.c */; };
-		2CD4D5F91EC31D76007F0619 /* WAVDecoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4D5F61EC31D76007F0619 /* WAVDecoder.c */; };
-		2CD4D5FD1EC31D82007F0619 /* AIFEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4D5FA1EC31D82007F0619 /* AIFEncoder.c */; };
-		2CD4D5FE1EC31D82007F0619 /* W64Encoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4D5FB1EC31D82007F0619 /* W64Encoder.c */; };
-		2CD4D5FF1EC31D82007F0619 /* WAVEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4D5FC1EC31D82007F0619 /* WAVEncoder.c */; };
 		2CD4D6001EC31E98007F0619 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3065591E809042009F1A54 /* libPCM.a */; };
 /* End PBXBuildFile section */
 
@@ -51,21 +54,24 @@
 /* Begin PBXFileReference section */
 		2C0FB68D1E8453E5005DEE50 /* BitIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BitIO.xcodeproj; path = ../Dependencies/BitIO/Projects/BitIO.xcodeproj; sourceTree = "<group>"; };
 		2C3065591E809042009F1A54 /* libPCM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPCM.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CA3A99F1F0A37F0005771A2 /* PXMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXMCommon.h; path = ../libPCM/include/PXMCommon.h; sourceTree = "<group>"; };
-		2CA3A9A11F0A3DC6005771A2 /* BMPCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMPCommon.h; path = ../libPCM/include/BMPCommon.h; sourceTree = "<group>"; };
-		2CCACEBE1E841BED00F14570 /* PCMTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PCMTypes.h; path = ../libPCM/include/PCMTypes.h; sourceTree = "<group>"; };
+		2CC4902F1F38094B00C71A65 /* W64Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W64Common.h; path = ../libPCM/include/Private/Audio/W64Common.h; sourceTree = "<group>"; };
+		2CC490301F38094B00C71A65 /* WAVCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WAVCommon.h; path = ../libPCM/include/Private/Audio/WAVCommon.h; sourceTree = "<group>"; };
+		2CC490311F38094B00C71A65 /* AIFCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIFCommon.h; path = ../libPCM/include/Private/Audio/AIFCommon.h; sourceTree = "<group>"; };
+		2CC490351F38095700C71A65 /* PXMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXMCommon.h; path = ../libPCM/include/Private/Image/PXMCommon.h; sourceTree = "<group>"; };
+		2CC490361F38095700C71A65 /* BMPCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMPCommon.h; path = ../libPCM/include/Private/Image/BMPCommon.h; sourceTree = "<group>"; };
+		2CC490391F38096300C71A65 /* libPCMTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libPCMTypes.h; path = ../libPCM/include/Private/libPCMTypes.h; sourceTree = "<group>"; };
+		2CC4903D1F3809E400C71A65 /* WAVDecoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = WAVDecoder.c; path = ../libPCM/src/Audio/WAVDecoder.c; sourceTree = "<group>"; };
+		2CC4903E1F3809E400C71A65 /* W64Decoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = W64Decoder.c; path = ../libPCM/src/Audio/W64Decoder.c; sourceTree = "<group>"; };
+		2CC4903F1F3809E400C71A65 /* W64Encoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = W64Encoder.c; path = ../libPCM/src/Audio/W64Encoder.c; sourceTree = "<group>"; };
+		2CC490401F3809E400C71A65 /* AIFDecoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = AIFDecoder.c; path = ../libPCM/src/Audio/AIFDecoder.c; sourceTree = "<group>"; };
+		2CC490411F3809E400C71A65 /* AIFEncoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = AIFEncoder.c; path = ../libPCM/src/Audio/AIFEncoder.c; sourceTree = "<group>"; };
+		2CC490421F3809E400C71A65 /* WAVEncoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = WAVEncoder.c; path = ../libPCM/src/Audio/WAVEncoder.c; sourceTree = "<group>"; };
+		2CC490491F3809EC00C71A65 /* BMPDecoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = BMPDecoder.c; path = ../libPCM/src/Image/BMPDecoder.c; sourceTree = "<group>"; };
+		2CC4904A1F3809EC00C71A65 /* BMPEncoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = BMPEncoder.c; path = ../libPCM/src/Image/BMPEncoder.c; sourceTree = "<group>"; };
+		2CC4904B1F3809EC00C71A65 /* PXMDecoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PXMDecoder.c; path = ../libPCM/src/Image/PXMDecoder.c; sourceTree = "<group>"; };
+		2CC4904C1F3809EC00C71A65 /* PXMEncoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PXMEncoder.c; path = ../libPCM/src/Image/PXMEncoder.c; sourceTree = "<group>"; };
 		2CD232211EB0ECDD005E4D8C /* TrimSilence */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TrimSilence; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD232281EB0ECED005E4D8C /* TrimSilence.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = TrimSilence.c; path = ../TrimSilence/TrimSilence.c; sourceTree = "<group>"; };
-		2CD4D5F41EC31D76007F0619 /* AIFDecoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = AIFDecoder.c; path = ../libPCM/src/AIFDecoder.c; sourceTree = "<group>"; };
-		2CD4D5F51EC31D76007F0619 /* W64Decoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = W64Decoder.c; path = ../libPCM/src/W64Decoder.c; sourceTree = "<group>"; };
-		2CD4D5F61EC31D76007F0619 /* WAVDecoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = WAVDecoder.c; path = ../libPCM/src/WAVDecoder.c; sourceTree = "<group>"; };
-		2CD4D5FA1EC31D82007F0619 /* AIFEncoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = AIFEncoder.c; path = ../libPCM/src/AIFEncoder.c; sourceTree = "<group>"; };
-		2CD4D5FB1EC31D82007F0619 /* W64Encoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = W64Encoder.c; path = ../libPCM/src/W64Encoder.c; sourceTree = "<group>"; };
-		2CD4D5FC1EC31D82007F0619 /* WAVEncoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = WAVEncoder.c; path = ../libPCM/src/WAVEncoder.c; sourceTree = "<group>"; };
-		2CE312471E7FBA8500E8A4E1 /* libPCM.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libPCM.c; path = ../libPCM/src/libPCM.c; sourceTree = "<group>"; };
-		2CE312491E7FBA9900E8A4E1 /* AIFCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIFCommon.h; path = ../libPCM/include/AIFCommon.h; sourceTree = "<group>"; };
-		2CE3124A1E7FBA9900E8A4E1 /* W64Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W64Common.h; path = ../libPCM/include/W64Common.h; sourceTree = "<group>"; };
-		2CE3124B1E7FBA9900E8A4E1 /* WAVCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WAVCommon.h; path = ../libPCM/include/WAVCommon.h; sourceTree = "<group>"; };
 		2CE3124F1E7FBAA200E8A4E1 /* libPCM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libPCM.h; path = ../libPCM/include/libPCM.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,9 +114,9 @@
 		2CA3A9981F0A36FF005771A2 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				2CE312491E7FBA9900E8A4E1 /* AIFCommon.h */,
-				2CE3124A1E7FBA9900E8A4E1 /* W64Common.h */,
-				2CE3124B1E7FBA9900E8A4E1 /* WAVCommon.h */,
+				2CC4902F1F38094B00C71A65 /* W64Common.h */,
+				2CC490301F38094B00C71A65 /* WAVCommon.h */,
+				2CC490311F38094B00C71A65 /* AIFCommon.h */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -118,44 +124,44 @@
 		2CA3A99A1F0A3711005771A2 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				2CA3A99F1F0A37F0005771A2 /* PXMCommon.h */,
-				2CA3A9A11F0A3DC6005771A2 /* BMPCommon.h */,
+				2CC490351F38095700C71A65 /* PXMCommon.h */,
+				2CC490361F38095700C71A65 /* BMPCommon.h */,
 			);
 			name = Image;
 			sourceTree = "<group>";
 		};
-		2CA3A99B1F0A3728005771A2 /* Audio */ = {
+		2CC4902E1F3808F400C71A65 /* Private */ = {
 			isa = PBXGroup;
 			children = (
-				2CD4D5FA1EC31D82007F0619 /* AIFEncoder.c */,
-				2CD4D5FB1EC31D82007F0619 /* W64Encoder.c */,
-				2CD4D5FC1EC31D82007F0619 /* WAVEncoder.c */,
+				2CC490391F38096300C71A65 /* libPCMTypes.h */,
+				2CA3A9981F0A36FF005771A2 /* Audio */,
+				2CA3A99A1F0A3711005771A2 /* Image */,
+			);
+			name = Private;
+			sourceTree = "<group>";
+		};
+		2CC4903B1F38097300C71A65 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				2CC490491F3809EC00C71A65 /* BMPDecoder.c */,
+				2CC4904A1F3809EC00C71A65 /* BMPEncoder.c */,
+				2CC4904B1F3809EC00C71A65 /* PXMDecoder.c */,
+				2CC4904C1F3809EC00C71A65 /* PXMEncoder.c */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		2CC4903C1F38097900C71A65 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				2CC4903D1F3809E400C71A65 /* WAVDecoder.c */,
+				2CC490421F3809E400C71A65 /* WAVEncoder.c */,
+				2CC4903E1F3809E400C71A65 /* W64Decoder.c */,
+				2CC4903F1F3809E400C71A65 /* W64Encoder.c */,
+				2CC490401F3809E400C71A65 /* AIFDecoder.c */,
+				2CC490411F3809E400C71A65 /* AIFEncoder.c */,
 			);
 			name = Audio;
-			sourceTree = "<group>";
-		};
-		2CA3A99C1F0A3731005771A2 /* Audio */ = {
-			isa = PBXGroup;
-			children = (
-				2CD4D5F41EC31D76007F0619 /* AIFDecoder.c */,
-				2CD4D5F51EC31D76007F0619 /* W64Decoder.c */,
-				2CD4D5F61EC31D76007F0619 /* WAVDecoder.c */,
-			);
-			name = Audio;
-			sourceTree = "<group>";
-		};
-		2CA3A99D1F0A3738005771A2 /* Image */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Image;
-			sourceTree = "<group>";
-		};
-		2CA3A99E1F0A373E005771A2 /* Image */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Image;
 			sourceTree = "<group>";
 		};
 		2CD2321B1EB0ECB2005E4D8C /* TrimSilence */ = {
@@ -164,24 +170,6 @@
 				2CD232281EB0ECED005E4D8C /* TrimSilence.c */,
 			);
 			name = TrimSilence;
-			sourceTree = "<group>";
-		};
-		2CE312381E7FBA3500E8A4E1 /* Decode */ = {
-			isa = PBXGroup;
-			children = (
-				2CA3A99D1F0A3738005771A2 /* Image */,
-				2CA3A99C1F0A3731005771A2 /* Audio */,
-			);
-			name = Decode;
-			sourceTree = "<group>";
-		};
-		2CE312391E7FBA3B00E8A4E1 /* Encode */ = {
-			isa = PBXGroup;
-			children = (
-				2CA3A99E1F0A373E005771A2 /* Image */,
-				2CA3A99B1F0A3728005771A2 /* Audio */,
-			);
-			name = Encode;
 			sourceTree = "<group>";
 		};
 		2CE8516E1DA99758004F3B90 = {
@@ -215,9 +203,8 @@
 		2CF204131E319ADC00C086C8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				2CE312471E7FBA8500E8A4E1 /* libPCM.c */,
-				2CE312391E7FBA3B00E8A4E1 /* Encode */,
-				2CE312381E7FBA3500E8A4E1 /* Decode */,
+				2CC4903C1F38097900C71A65 /* Audio */,
+				2CC4903B1F38097300C71A65 /* Image */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -226,9 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				2CE3124F1E7FBAA200E8A4E1 /* libPCM.h */,
-				2CCACEBE1E841BED00F14570 /* PCMTypes.h */,
-				2CA3A99A1F0A3711005771A2 /* Image */,
-				2CA3A9981F0A36FF005771A2 /* Audio */,
+				2CC4902E1F3808F400C71A65 /* Private */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -240,13 +225,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CAB0F8E1E948133007FAB96 /* PCMTypes.h in Headers */,
-				2CAB0F8D1E948130007FAB96 /* WAVCommon.h in Headers */,
-				2CA3A9A21F0A3DC6005771A2 /* BMPCommon.h in Headers */,
-				2CAB0F8F1E948135007FAB96 /* AIFCommon.h in Headers */,
-				2CA3A9A01F0A37F0005771A2 /* PXMCommon.h in Headers */,
+				2CC490381F38095700C71A65 /* BMPCommon.h in Headers */,
+				2CC490321F38094B00C71A65 /* W64Common.h in Headers */,
+				2CC490331F38094B00C71A65 /* WAVCommon.h in Headers */,
+				2CC490341F38094B00C71A65 /* AIFCommon.h in Headers */,
 				2CAB0F901E948138007FAB96 /* libPCM.h in Headers */,
-				2CAB0F8A1E948126007FAB96 /* W64Common.h in Headers */,
+				2CC490371F38095700C71A65 /* PXMCommon.h in Headers */,
+				2CC4903A1F38096300C71A65 /* libPCMTypes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,13 +332,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CC61B771E84685A0031E649 /* libPCM.c in Sources */,
-				2CD4D5FF1EC31D82007F0619 /* WAVEncoder.c in Sources */,
-				2CD4D5F91EC31D76007F0619 /* WAVDecoder.c in Sources */,
-				2CD4D5F71EC31D76007F0619 /* AIFDecoder.c in Sources */,
-				2CD4D5F81EC31D76007F0619 /* W64Decoder.c in Sources */,
-				2CD4D5FE1EC31D82007F0619 /* W64Encoder.c in Sources */,
-				2CD4D5FD1EC31D82007F0619 /* AIFEncoder.c in Sources */,
+				2CC490441F3809E400C71A65 /* W64Decoder.c in Sources */,
+				2CC4904F1F3809EC00C71A65 /* PXMDecoder.c in Sources */,
+				2CC490481F3809E400C71A65 /* WAVEncoder.c in Sources */,
+				2CC490451F3809E400C71A65 /* W64Encoder.c in Sources */,
+				2CC490431F3809E400C71A65 /* WAVDecoder.c in Sources */,
+				2CC4904E1F3809EC00C71A65 /* BMPEncoder.c in Sources */,
+				2CC4904D1F3809EC00C71A65 /* BMPDecoder.c in Sources */,
+				2CC490461F3809E400C71A65 /* AIFDecoder.c in Sources */,
+				2CC490501F3809EC00C71A65 /* PXMEncoder.c in Sources */,
+				2CC490471F3809E400C71A65 /* AIFEncoder.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
