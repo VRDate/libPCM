@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C9E710C1F39659800295B3C /* libPCM.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C9E710B1F39659800295B3C /* libPCM.c */; };
 		2CAB0F901E948138007FAB96 /* libPCM.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE3124F1E7FBAA200E8A4E1 /* libPCM.h */; };
 		2CBF56CD1E84C54100453C02 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6951E8453E5005DEE50 /* libBitIO.a */; };
 		2CC490321F38094B00C71A65 /* W64Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CC4902F1F38094B00C71A65 /* W64Common.h */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		2C0FB68D1E8453E5005DEE50 /* BitIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BitIO.xcodeproj; path = ../Dependencies/BitIO/Projects/BitIO.xcodeproj; sourceTree = "<group>"; };
 		2C3065591E809042009F1A54 /* libPCM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPCM.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C9E710B1F39659800295B3C /* libPCM.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libPCM.c; path = ../libPCM/src/libPCM.c; sourceTree = "<group>"; };
 		2CC4902F1F38094B00C71A65 /* W64Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W64Common.h; path = ../libPCM/include/Private/Audio/W64Common.h; sourceTree = "<group>"; };
 		2CC490301F38094B00C71A65 /* WAVCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WAVCommon.h; path = ../libPCM/include/Private/Audio/WAVCommon.h; sourceTree = "<group>"; };
 		2CC490311F38094B00C71A65 /* AIFCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIFCommon.h; path = ../libPCM/include/Private/Audio/AIFCommon.h; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		2CF204131E319ADC00C086C8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				2C9E710B1F39659800295B3C /* libPCM.c */,
 				2CC4903C1F38097900C71A65 /* Audio */,
 				2CC4903B1F38097300C71A65 /* Image */,
 			);
@@ -334,6 +337,7 @@
 			files = (
 				2CC490441F3809E400C71A65 /* W64Decoder.c in Sources */,
 				2CC4904F1F3809EC00C71A65 /* PXMDecoder.c in Sources */,
+				2C9E710C1F39659800295B3C /* libPCM.c in Sources */,
 				2CC490481F3809E400C71A65 /* WAVEncoder.c in Sources */,
 				2CC490451F3809E400C71A65 /* W64Encoder.c in Sources */,
 				2CC490431F3809E400C71A65 /* WAVDecoder.c in Sources */,

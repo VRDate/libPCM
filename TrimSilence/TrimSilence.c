@@ -13,6 +13,7 @@ extern "C" {
         Output  = 1,
         Silence = 2,
         Help    = 3,
+        LogFile = 4,
     };
     
     CommandLineIO *SetTrimSilenceOptions(void) {
@@ -30,19 +31,27 @@ extern "C" {
         SetCLISwitchFlag(CLI, Input, "Input", 5);
         SetCLISwitchDescription(CLI, Input, "Input file or stdin with: '-'\n");
         SetCLISwitchResultStatus(CLI, Input, false);
-        SetCLISwitchAsMain
+        SetCLISwitchAsMain(CLI, Input, true);
         
         SetCLISwitchFlag(CLI, Output, "Output", 6);
         SetCLISwitchDescription(CLI, Output, "Output file or stdout with: '-'\n");
         SetCLISwitchResultStatus(CLI, Output, false);
+        SetCLISwitchAsMain(CLI, Output, true);
         
         SetCLISwitchFlag(CLI, Silence, "Silence", 7);
         SetCLISwitchDescription(CLI, Silence, "Set the threshhold, in dB or absolute value like: (-|--|/)Silence 12dB or: (-|--|/)Silence 0");
         SetCLISwitchResultStatus(CLI, Silence, false);
+        SetCLISwitchAsMain(CLI, Silence, true);
         
         SetCLISwitchFlag(CLI, Help, "Help", 4);
         SetCLISwitchDescription(CLI, Help, "Prints all the command line options");
         SetCLISwitchResultStatus(CLI, Help, true);
+        SetCLISwitchAsMain(CLI, Help, true);
+        
+        SetCLISwitchFlag(CLI, LogFile, "LogFile", 7);
+        SetCLISwitchDescription(CLI, LogFile, "Prints all the command line options");
+        SetCLISwitchResultStatus(CLI, LogFile, true);
+        SetCLISwitchAsMain(CLI, LogFile, true);
         
         return CLI;
     }
