@@ -156,12 +156,12 @@
 		2CC4903C1F38097900C71A65 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				2CC490401F3809E400C71A65 /* AIFDecoder.c */,
+				2CC490411F3809E400C71A65 /* AIFEncoder.c */,
 				2CC4903D1F3809E400C71A65 /* WAVDecoder.c */,
 				2CC490421F3809E400C71A65 /* WAVEncoder.c */,
 				2CC4903E1F3809E400C71A65 /* W64Decoder.c */,
 				2CC4903F1F3809E400C71A65 /* W64Encoder.c */,
-				2CC490401F3809E400C71A65 /* AIFDecoder.c */,
-				2CC490411F3809E400C71A65 /* AIFEncoder.c */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
