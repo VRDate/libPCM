@@ -116,9 +116,9 @@
 		2CA3A9981F0A36FF005771A2 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				2CC4902F1F38094B00C71A65 /* W64Common.h */,
-				2CC490301F38094B00C71A65 /* WAVCommon.h */,
 				2CC490311F38094B00C71A65 /* AIFCommon.h */,
+				2CC490301F38094B00C71A65 /* WAVCommon.h */,
+				2CC4902F1F38094B00C71A65 /* W64Common.h */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -126,8 +126,8 @@
 		2CA3A99A1F0A3711005771A2 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				2CC490351F38095700C71A65 /* PXMCommon.h */,
 				2CC490361F38095700C71A65 /* BMPCommon.h */,
+				2CC490351F38095700C71A65 /* PXMCommon.h */,
 			);
 			name = Image;
 			sourceTree = "<group>";
