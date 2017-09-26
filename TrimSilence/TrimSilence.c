@@ -11,9 +11,9 @@ extern "C" {
     enum CommandLineSwitchNames {
         Input   = 0,
         Output  = 1,
-        Silence = 2,
-        Help    = 3,
-        LogFile = 4,
+        LogFile = 2,
+        Silence = 3,
+        Help    = 4,
     };
     
     CommandLineIO *SetTrimSilenceOptions(void) {
@@ -24,34 +24,33 @@ extern "C" {
         SetCLIAuthor(CLI, "BumbleBritches57");
         SetCLICopyright(CLI, "2017-2017");
         SetCLIDescription(CLI, "PCM silence remover written from scratch in modern C");
-        SetCLILicense(CLI, "Revised BSD", NULL, false);
-        SetCLILicenseURL(CLI, "https://opensource.org/licenses/BSD-3-Clause");
+        SetCLILicense(CLI, "Revised BSD", "Permissive open source license", "https://opensource.org/licenses/BSD-3-Clause", false);
         SetCLIMinSwitches(CLI, 3);
         
-        SetCLISwitchFlag(CLI, Input, "Input", 5);
+        SetCLISwitchFlag(CLI, Input, "Input");
         SetCLISwitchDescription(CLI, Input, "Input file or stdin with: '-'\n");
         SetCLISwitchResultStatus(CLI, Input, false);
-        SetCLISwitchAsMaster(CLI, Input, true);
+        SetCLISwitchAsMaster(CLI, Input);
         
-        SetCLISwitchFlag(CLI, Output, "Output", 6);
+        SetCLISwitchFlag(CLI, Output, "Output");
         SetCLISwitchDescription(CLI, Output, "Output file or stdout with: '-'\n");
         SetCLISwitchResultStatus(CLI, Output, false);
-        SetCLISwitchAsMaster(CLI, Output, true);
+        SetCLISwitchAsMaster(CLI, Output);
         
-        SetCLISwitchFlag(CLI, Silence, "Silence", 7);
-        SetCLISwitchDescription(CLI, Silence, "Set the threshhold, in dB or absolute value like: (-|--|/)Silence 12dB or: (-|--|/)Silence 0");
-        SetCLISwitchResultStatus(CLI, Silence, false);
-        SetCLISwitchAsMaster(CLI, Silence, true);
-        
-        SetCLISwitchFlag(CLI, Help, "Help", 4);
-        SetCLISwitchDescription(CLI, Help, "Prints all the command line options");
-        SetCLISwitchResultStatus(CLI, Help, true);
-        SetCLISwitchAsMaster(CLI, Help, true);
-        
-        SetCLISwitchFlag(CLI, LogFile, "LogFile", 7);
+        SetCLISwitchFlag(CLI, LogFile, "LogFile");
         SetCLISwitchDescription(CLI, LogFile, "Prints all the command line options");
         SetCLISwitchResultStatus(CLI, LogFile, true);
-        SetCLISwitchAsMaster(CLI, LogFile, true);
+        SetCLISwitchAsMaster(CLI, LogFile);
+        
+        SetCLISwitchFlag(CLI, Silence, "Silence");
+        SetCLISwitchDescription(CLI, Silence, "Set the threshhold, in dB or absolute value like: (-|--|/)Silence 12dB or: (-|--|/)Silence 0");
+        SetCLISwitchResultStatus(CLI, Silence, false);
+        SetCLISwitchAsMaster(CLI, Silence);
+        
+        SetCLISwitchFlag(CLI, Help, "Help");
+        SetCLISwitchDescription(CLI, Help, "Prints all the command line options");
+        SetCLISwitchResultStatus(CLI, Help, true);
+        SetCLISwitchAsMaster(CLI, Help);
         
         return CLI;
     }
