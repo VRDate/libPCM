@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C03EDAF1F9F6DCD0033FDB1 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6951E8453E5005DEE50 /* libBitIO.a */; };
 		2C9E710C1F39659800295B3C /* libPCM.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C9E710B1F39659800295B3C /* libPCM.c */; };
 		2CAB0F901E948138007FAB96 /* libPCM.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE3124F1E7FBAA200E8A4E1 /* libPCM.h */; };
 		2CBF56CD1E84C54100453C02 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6951E8453E5005DEE50 /* libBitIO.a */; };
@@ -90,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C03EDAF1F9F6DCD0033FDB1 /* libBitIO.a in Frameworks */,
 				2CD4D6001EC31E98007F0619 /* libPCM.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,6 +99,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C03EDAD1F9F6DCD0033FDB1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2C0FB68C1E8453D5005DEE50 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +190,7 @@
 				2CF204121E319AD500C086C8 /* libPCM */,
 				2CD2321B1EB0ECB2005E4D8C /* TrimSilence */,
 				2CE851781DA99758004F3B90 /* Products */,
+				2C03EDAD1F9F6DCD0033FDB1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

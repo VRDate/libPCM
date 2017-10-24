@@ -17,7 +17,7 @@ extern "C" {
     };
     
     CommandLineIO *SetTrimSilenceOptions(void) {
-        CommandLineIO     *CLI = InitCommandLineIO(4);
+        CommandLineIO     *CLI = CommandLineIOInit(4);
         
         SetCLIName(CLI, "TrimSilence");
         SetCLIVersion(CLI, TrimSilenceVersion);
@@ -25,47 +25,45 @@ extern "C" {
         SetCLICopyright(CLI, "2017-2017");
         SetCLIDescription(CLI, "PCM silence remover written from scratch in modern C");
         SetCLILicense(CLI, "Revised BSD", "Permissive open source license", "https://opensource.org/licenses/BSD-3-Clause", false);
-        SetCLIMinSwitches(CLI, 3);
+        SetCLIMinArguments(CLI, 3);
         
         SetCLISwitchFlag(CLI, Input, "Input");
         SetCLISwitchDescription(CLI, Input, "Input file or stdin with: '-'\n");
-        SetCLISwitchResultStatus(CLI, Input, false);
-        SetCLISwitchAsMaster(CLI, Input);
+        SetCLISwitchAsIndependent(CLI, Input);
         
         SetCLISwitchFlag(CLI, Output, "Output");
         SetCLISwitchDescription(CLI, Output, "Output file or stdout with: '-'\n");
-        SetCLISwitchResultStatus(CLI, Output, false);
-        SetCLISwitchAsMaster(CLI, Output);
+        SetCLISwitchAsIndependent(CLI, Output);
         
         SetCLISwitchFlag(CLI, LogFile, "LogFile");
-        SetCLISwitchDescription(CLI, LogFile, "Prints all the command line options");
-        SetCLISwitchResultStatus(CLI, LogFile, true);
-        SetCLISwitchAsMaster(CLI, LogFile);
+        SetCLISwitchDescription(CLI, LogFile, "Where should the logs be written? if unspecified, logs are written to STDERR");
+        SetCLISwitchAsIndependent(CLI, LogFile);
         
         SetCLISwitchFlag(CLI, Silence, "Silence");
         SetCLISwitchDescription(CLI, Silence, "Set the threshhold, in dB or absolute value like: (-|--|/)Silence 12dB or: (-|--|/)Silence 0");
-        SetCLISwitchResultStatus(CLI, Silence, false);
-        SetCLISwitchAsMaster(CLI, Silence);
+        SetCLISwitchAsIndependent(CLI, Silence);
         
         SetCLISwitchFlag(CLI, Help, "Help");
         SetCLISwitchDescription(CLI, Help, "Prints all the command line options");
-        SetCLISwitchResultStatus(CLI, Help, true);
-        SetCLISwitchAsMaster(CLI, Help);
+        SetCLISwitchAsIndependent(CLI, Help);
         
         return CLI;
     }
     
     int main(int argc, const char * argv[]) {
-        CommandLineIO *CLI  = SetTrimSilenceOptions();
+        CommandLineIO *CLI         = SetTrimSilenceOptions();
         ParseCommandLineArguments(CLI, argc, argv);
-        BitInput            *BitI  = InitBitInput();
-        BitOutput           *BitO  = InitBitOutput();
-        PCMFile             *PCM   = InitPCMFile();
+        BitInput            *BitI  = BitInputInit();
+        BitOutput           *BitO  = BitOutputInit();
+        PCMFile             *PCM   = PCMFileInit();
         
-        OpenInputFile(BitI, GetCLIArgumentResult(CLI, Input), false);
-        OpenOutputFile(BitO, GetCLIArgumentResult(CLI, Output));
+        uint64_t InputFileArg      = GetCLIArgumentNumWithIndependentAndDependents(CLI, Input, 0);
+        uint64_t OutputFileArg     = GetCLIArgumentNumWithIndependentAndDependents(CLI, Output, 0);
         
-        IdentifyPCMFile(BitI, PCM);
+        BitInputOpenFile(BitI, GetCLIArgumentResult(CLI, InputFileArg));
+        BitOutputOpenFile(BitO, GetCLIArgumentResult(CLI, OutputFileArg));
+        
+        IdentifyPCMFile(PCM, BitI);
         
         return 0;
     }
