@@ -187,10 +187,10 @@
 			isa = PBXGroup;
 			children = (
 				2C0FB68C1E8453D5005DEE50 /* Dependencies */,
+				2C03EDAD1F9F6DCD0033FDB1 /* Frameworks */,
 				2CF204121E319AD500C086C8 /* libPCM */,
 				2CD2321B1EB0ECB2005E4D8C /* TrimSilence */,
 				2CE851781DA99758004F3B90 /* Products */,
-				2C03EDAD1F9F6DCD0033FDB1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

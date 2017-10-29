@@ -56,6 +56,7 @@ extern "C" {
         BitInput            *BitI  = BitInputInit();
         BitOutput           *BitO  = BitOutputInit();
         PCMFile             *PCM   = PCMFileInit();
+        BitBuffer           *BitB  = BitBufferInit(40);
         
         uint64_t InputFileArg      = GetCLIArgumentNumWithIndependentAndDependents(CLI, Input, 0);
         uint64_t OutputFileArg     = GetCLIArgumentNumWithIndependentAndDependents(CLI, Output, 0);
@@ -63,7 +64,7 @@ extern "C" {
         BitInputOpenFile(BitI, GetCLIArgumentResult(CLI, InputFileArg));
         BitOutputOpenFile(BitO, GetCLIArgumentResult(CLI, OutputFileArg));
         
-        IdentifyPCMFile(PCM, BitI);
+        IdentifyPCMFile(PCM, BitB);
         
         return 0;
     }
