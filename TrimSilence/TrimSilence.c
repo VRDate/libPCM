@@ -50,6 +50,19 @@ extern "C" {
         return CLI;
     }
     
+    void RemoveEmptySamples(uint32_t NumChannels, uint32_t NumSamples, uint32_t **AudioSamples) {
+        uint32_t  CurrentSampleIndex = 0UL;
+        uint32_t *CurrentSampleValue = calloc(NumChannels, sizeof(uint32_t));
+        for (uint32_t Channel = 0UL; Channel < NumChannels; Channel++) {
+            for (uint32_t Sample = 0UL; Sample < NumSamples; Sample++) {
+                // Ok, so we need to check each sample to see if it is 0, and if it is, make sure all samples in that group are zer0, then loop until we find a non-zero sample.
+                while (AudioSamples[Channel][Sample] == 0x0) {
+                    CurrentSampleIndex += 1;
+                }
+            }
+        }
+    }
+    
     int main(int argc, const char * argv[]) {
         CommandLineIO *CLI         = SetTrimSilenceOptions();
         ParseCommandLineArguments(CLI, argc, argv);
@@ -62,29 +75,33 @@ extern "C" {
         uint64_t OutputFileArg     = GetCLIArgumentNumWithIndependentAndDependents(CLI, Output, 0);
         
         char *OutputPath           = GetCLIArgumentResult(CLI, OutputFileArg);
-        
         char *OutputExtension      = GetExtensionFromPath(OutputPath);
         
         if (strcasecmp(OutputExtension, "wav") == 0) {
             PCMSetOutputFileType(PCM, WAVFormat);
         } else if (strcasecmp(OutputExtension, "w64") == 0) {
             PCMSetOutputFileType(PCM, W64Format);
-        } else if (strcasecmp(OutputExtension, "aif") == 0 || strcasecmp(OutputExtension, "aiff") == 0 || strcasecmp(OutputExtension, "aifc") == 0) {
+        } else if (strcasecmp(OutputExtension, "aif") == 0) {
             PCMSetOutputFileType(PCM, AIFFormat);
-        } else if (strcasecmp(OutputExtension, "bmp") == 0 || strcasecmp(OutputExtension, "dib") == 0) {
-            PCMSetOutputFileType(PCM, BMPFormat);
-        } else if (strcasecmp(OutputExtension, "pbm") == 0 || strcasecmp(OutputExtension, "pgm") == 0 || strcasecmp(OutputExtension, "pbm") == 0 || strcasecmp(OutputExtension, "pnm") == 0 || strcasecmp(OutputExtension, "pam") == 0) {
-            PCMSetOutputFileType(PCM, PXMFormat);
+        } else if (strcasecmp(OutputExtension, "aiff") == 0) {
+            PCMSetOutputFileType(PCM, AIFFormat);
+        } else if (strcasecmp(OutputExtension, "aifc") == 0) {
+            PCMSetOutputFileType(PCM, AIFFormat);
         } else {
             BitIOLog(LOG_ERROR, "TrimSilence", "main", "Unrecognized extension: %s", OutputExtension);
         }
         
         // So now we go ahead and mess around with the samples, looking for empty SampleGroups, then write it all out with the generic Write functions that I need to write.
         
-        BitInputOpenFile(BitI, GetCLIArgumentResult(CLI, InputFileArg));
+        BitInputOpenFile(BitI,  GetCLIArgumentResult(CLI, InputFileArg));
         BitOutputOpenFile(BitO, GetCLIArgumentResult(CLI, OutputFileArg));
         
         IdentifyPCMFile(PCM, BitB);
+        ParsePCMMetadata(PCM, BitB);
+        
+        uint32_t **AudioSamples = NULL; // Lets read 4096 samples at a time.
+        AudioSamples = ExtractSamples(PCM, BitB, 4096);
+        
         
         return 0;
     }
