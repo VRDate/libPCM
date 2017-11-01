@@ -61,6 +61,26 @@ extern "C" {
         uint64_t InputFileArg      = GetCLIArgumentNumWithIndependentAndDependents(CLI, Input, 0);
         uint64_t OutputFileArg     = GetCLIArgumentNumWithIndependentAndDependents(CLI, Output, 0);
         
+        char *OutputPath           = GetCLIArgumentResult(CLI, OutputFileArg);
+        
+        char *OutputExtension      = GetExtensionFromPath(OutputPath);
+        
+        if (strcasecmp(OutputExtension, "wav") == 0) {
+            PCMSetOutputFileType(PCM, WAVFormat);
+        } else if (strcasecmp(OutputExtension, "w64") == 0) {
+            PCMSetOutputFileType(PCM, W64Format);
+        } else if (strcasecmp(OutputExtension, "aif") == 0 || strcasecmp(OutputExtension, "aiff") == 0 || strcasecmp(OutputExtension, "aifc") == 0) {
+            PCMSetOutputFileType(PCM, AIFFormat);
+        } else if (strcasecmp(OutputExtension, "bmp") == 0 || strcasecmp(OutputExtension, "dib") == 0) {
+            PCMSetOutputFileType(PCM, BMPFormat);
+        } else if (strcasecmp(OutputExtension, "pbm") == 0 || strcasecmp(OutputExtension, "pgm") == 0 || strcasecmp(OutputExtension, "pbm") == 0 || strcasecmp(OutputExtension, "pnm") == 0 || strcasecmp(OutputExtension, "pam") == 0) {
+            PCMSetOutputFileType(PCM, PXMFormat);
+        } else {
+            BitIOLog(LOG_ERROR, "TrimSilence", "main", "Unrecognized extension: %s", OutputExtension);
+        }
+        
+        // So now we go ahead and mess around with the samples, looking for empty SampleGroups, then write it all out with the generic Write functions that I need to write.
+        
         BitInputOpenFile(BitI, GetCLIArgumentResult(CLI, InputFileArg));
         BitOutputOpenFile(BitO, GetCLIArgumentResult(CLI, OutputFileArg));
         
