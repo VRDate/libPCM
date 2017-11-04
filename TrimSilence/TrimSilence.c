@@ -28,11 +28,11 @@ extern "C" {
         SetCLIMinArguments(CLI, 3);
         
         SetCLISwitchFlag(CLI, Input, "Input");
-        SetCLISwitchDescription(CLI, Input, "Input file or stdin with: '-'\n");
+        SetCLISwitchDescription(CLI, Input, "Input file or stdin with: -Input -");
         SetCLISwitchAsIndependent(CLI, Input);
         
         SetCLISwitchFlag(CLI, Output, "Output");
-        SetCLISwitchDescription(CLI, Output, "Output file or stdout with: '-'\n");
+        SetCLISwitchDescription(CLI, Output, "Output file or stdout with: -Output -");
         SetCLISwitchAsIndependent(CLI, Output);
         
         SetCLISwitchFlag(CLI, LogFile, "LogFile");
@@ -40,7 +40,7 @@ extern "C" {
         SetCLISwitchAsIndependent(CLI, LogFile);
         
         SetCLISwitchFlag(CLI, Silence, "Silence");
-        SetCLISwitchDescription(CLI, Silence, "Set the threshhold, in dB or absolute value like: (-|--|/)Silence 12dB or: (-|--|/)Silence 0");
+        SetCLISwitchDescription(CLI, Silence, "Set the threshhold in dB or absolute value");
         SetCLISwitchAsIndependent(CLI, Silence);
         
         SetCLISwitchFlag(CLI, Help, "Help");
@@ -52,7 +52,7 @@ extern "C" {
     
     void RemoveEmptySamples(uint32_t NumChannels, uint32_t NumSamples, uint32_t **AudioSamples) {
         uint32_t  CurrentSampleIndex = 0UL;
-        uint32_t *CurrentSampleValue = calloc(NumChannels, sizeof(uint32_t));
+        uint32_t *CurrentSampleValue = calloc(NumChannels, NumSamples * sizeof(uint32_t));
         for (uint32_t Channel = 0UL; Channel < NumChannels; Channel++) {
             for (uint32_t Sample = 0UL; Sample < NumSamples; Sample++) {
                 // Ok, so we need to check each sample to see if it is 0, and if it is, make sure all samples in that group are zer0, then loop until we find a non-zero sample.
@@ -88,7 +88,7 @@ extern "C" {
         } else if (strcasecmp(OutputExtension, "aifc") == 0) {
             PCMSetOutputFileType(PCM, AIFFormat);
         } else {
-            BitIOLog(LOG_ERROR, "TrimSilence", "main", "Unrecognized extension: %s", OutputExtension);
+            BitIOLog(LOG_ERROR, "TrimSilence", __func__, "Unrecognized extension: %s", OutputExtension);
         }
         
         // So now we go ahead and mess around with the samples, looking for empty SampleGroups, then write it all out with the generic Write functions that I need to write.
