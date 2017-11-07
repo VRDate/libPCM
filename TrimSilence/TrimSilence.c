@@ -17,42 +17,44 @@ extern "C" {
     };
     
     CommandLineIO *SetTrimSilenceOptions(void) {
-        CommandLineIO     *CLI = CommandLineIOInit(4);
+        CommandLineIO     *CLI = CommandLineIO_Init(5);
         
-        SetCLIName(CLI, "TrimSilence");
-        SetCLIVersion(CLI, TrimSilenceVersion);
-        SetCLIAuthor(CLI, "BumbleBritches57");
-        SetCLICopyright(CLI, "2017-2017");
-        SetCLIDescription(CLI, "PCM silence remover written from scratch in modern C");
-        SetCLILicense(CLI, "Revised BSD", "Permissive open source license", "https://opensource.org/licenses/BSD-3-Clause", false);
-        SetCLIMinArguments(CLI, 3);
+        CLISetName(CLI, "TrimSilence");
+        CLISetVersion(CLI, TrimSilenceVersion);
+        CLISetAuthor(CLI, "BumbleBritches57");
+        CLISetCopyright(CLI, "2017 - 2017");
+        CLISetDescription(CLI, "PCM silence remover written from scratch in modern C");
+        CLISetLicense(CLI, "Revised BSD", "Permissive open source license", "https://opensource.org/licenses/BSD-3-Clause", false);
+        CLISetMinArguments(CLI, 3);
+        CLISetHelpSwitch(CLI, Help);
         
-        SetCLISwitchFlag(CLI, Input, "Input");
-        SetCLISwitchDescription(CLI, Input, "Input file or stdin with: -Input -");
-        SetCLISwitchAsIndependent(CLI, Input);
+        CLISetSwitchFlag(CLI, Input, "Input");
+        CLISetSwitchDescription(CLI, Input, "Input file or stdin with: -Input -");
+        CLISetSwitchType(CLI, Input, SingleSwitchWithResult);
         
-        SetCLISwitchFlag(CLI, Output, "Output");
-        SetCLISwitchDescription(CLI, Output, "Output file or stdout with: -Output -");
-        SetCLISwitchAsIndependent(CLI, Output);
+        CLISetSwitchFlag(CLI, Output, "Output");
+        CLISetSwitchDescription(CLI, Output, "Output file or stdout with: -Output -");
+        CLISetSwitchType(CLI, Output, SingleSwitchWithResult);
         
-        SetCLISwitchFlag(CLI, LogFile, "LogFile");
-        SetCLISwitchDescription(CLI, LogFile, "Where should the logs be written? if unspecified, logs are written to STDERR");
-        SetCLISwitchAsIndependent(CLI, LogFile);
+        CLISetSwitchFlag(CLI, LogFile, "LogFile");
+        CLISetSwitchDescription(CLI, LogFile, "Where should the logs be written? if unspecified, logs are written to STDERR");
+        CLISetSwitchType(CLI, LogFile, SingleSwitchWithResult);
         
-        SetCLISwitchFlag(CLI, Silence, "Silence");
-        SetCLISwitchDescription(CLI, Silence, "Set the threshhold in dB or absolute value");
-        SetCLISwitchAsIndependent(CLI, Silence);
+        CLISetSwitchFlag(CLI, Silence, "Silence");
+        CLISetSwitchDescription(CLI, Silence, "Set the threshhold in dB or absolute value");
+        CLISetSwitchType(CLI, Silence, SingleSwitchWithResult);
         
-        SetCLISwitchFlag(CLI, Help, "Help");
-        SetCLISwitchDescription(CLI, Help, "Prints all the command line options");
-        SetCLISwitchAsIndependent(CLI, Help);
+        CLISetSwitchFlag(CLI, Help, "Help");
+        CLISetSwitchDescription(CLI, Help, "Prints all the command line options");
+        CLISetSwitchType(CLI, Help, SingleSwitchNoResult);
         
         return CLI;
     }
     
-    void RemoveEmptySamples(uint32_t NumChannels, uint32_t NumSamples, uint32_t **AudioSamples) {
+    void RemoveEmptySamples(PCMFile *PCM, uint32_t NumChannels, uint32_t NumSamples, uint32_t **AudioSamples) {
         uint32_t  CurrentSampleIndex = 0UL;
-        uint32_t *CurrentSampleValue = calloc(NumChannels, NumSamples * sizeof(uint32_t));
+        uint8_t   BitDepth           = PCMGetBitDepth(PCM);
+        uint32_t *CurrentSampleValue = calloc(NumChannels, NumSamples * Bits2Bytes(BitDepth, Yes));
         for (uint32_t Channel = 0UL; Channel < NumChannels; Channel++) {
             for (uint32_t Sample = 0UL; Sample < NumSamples; Sample++) {
                 // Ok, so we need to check each sample to see if it is 0, and if it is, make sure all samples in that group are zer0, then loop until we find a non-zero sample.
@@ -63,18 +65,20 @@ extern "C" {
         }
     }
     
-    int main(int argc, const char * argv[]) {
-        CommandLineIO *CLI         = SetTrimSilenceOptions();
+    int main(int argc, const char *argv[]) {
+        CommandLineIO *CLI   = SetTrimSilenceOptions();
+        BitInput      *BitI  = BitInput_Init();
+        BitOutput     *BitO  = BitOutput_Init();
+        PCMFile       *PCM   = PCMFileInit();
+        BitBuffer     *BitB  = BitBuffer_Init(40);
+        
         ParseCommandLineArguments(CLI, argc, argv);
-        BitInput            *BitI  = BitInputInit();
-        BitOutput           *BitO  = BitOutputInit();
-        PCMFile             *PCM   = PCMFileInit();
-        BitBuffer           *BitB  = BitBufferInit(40);
         
-        uint64_t InputFileArg      = GetCLIArgumentNumWithIndependentAndDependents(CLI, Input, 0);
-        uint64_t OutputFileArg     = GetCLIArgumentNumWithIndependentAndDependents(CLI, Output, 0);
+        uint64_t InputFileArg      = CLIGetMatchingArgumentNum(CLI, 1, Input, 0, NULL);
+        uint64_t OutputFileArg     = CLIGetMatchingArgumentNum(CLI, 1, Output, 0, NULL);
         
-        char *OutputPath           = GetCLIArgumentResult(CLI, OutputFileArg);
+        char *InputPath            = CLIGetArgumentResult(CLI, InputFileArg);
+        char *OutputPath           = CLIGetArgumentResult(CLI, OutputFileArg);
         char *OutputExtension      = GetExtensionFromPath(OutputPath);
         
         if (strcasecmp(OutputExtension, "wav") == 0) {
@@ -93,15 +97,14 @@ extern "C" {
         
         // So now we go ahead and mess around with the samples, looking for empty SampleGroups, then write it all out with the generic Write functions that I need to write.
         
-        BitInputOpenFile(BitI,  GetCLIArgumentResult(CLI, InputFileArg));
-        BitOutputOpenFile(BitO, GetCLIArgumentResult(CLI, OutputFileArg));
+        BitInput_OpenFile(BitI, InputPath);
+        BitOutput_OpenFile(BitO, OutputPath);
         
         IdentifyPCMFile(PCM, BitB);
         ParsePCMMetadata(PCM, BitB);
         
         uint32_t **AudioSamples = NULL; // Lets read 4096 samples at a time.
         AudioSamples = ExtractSamples(PCM, BitB, 4096);
-        
         
         return 0;
     }
