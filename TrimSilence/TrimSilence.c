@@ -1,4 +1,4 @@
-#include "../Dependencies/BitIO/libBitIO/include/CommandLineIO.h"
+    #include "../Dependencies/BitIO/libBitIO/include/CommandLineIO.h"
 
 #include "../libPCM/include/libPCM.h"
 
@@ -9,11 +9,11 @@ extern "C" {
 #define TrimSilenceVersion "0.1.0"
     
     enum CommandLineSwitchNames {
-        Input   = 0,
-        Output  = 1,
-        LogFile = 2,
-        Silence = 3,
-        Help    = 4,
+        Input        = 0,
+        Output       = 1,
+        LogFile      = 2,
+        SilenceLevel = 3,
+        Help         = 4,
     };
     
     CommandLineIO *SetTrimSilenceOptions(void) {
@@ -40,9 +40,9 @@ extern "C" {
         CLISetSwitchDescription(CLI, LogFile, "Where should the logs be written? if unspecified, logs are written to STDERR");
         CLISetSwitchType(CLI, LogFile, SingleSwitchWithResult);
         
-        CLISetSwitchFlag(CLI, Silence, "Silence");
-        CLISetSwitchDescription(CLI, Silence, "Set the threshhold in dB or absolute value");
-        CLISetSwitchType(CLI, Silence, SingleSwitchWithResult);
+        CLISetSwitchFlag(CLI, SilenceLevel, "SilenceLevel");
+        CLISetSwitchDescription(CLI, SilenceLevel, "Set the threshhold by absolute value");
+        CLISetSwitchType(CLI, SilenceLevel, SingleSwitchWithResult);
         
         CLISetSwitchFlag(CLI, Help, "Help");
         CLISetSwitchDescription(CLI, Help, "Prints all the command line options");
@@ -76,10 +76,16 @@ extern "C" {
         
         uint64_t InputFileArg      = CLIGetMatchingArgumentNum(CLI, 1, Input, 0, NULL);
         uint64_t OutputFileArg     = CLIGetMatchingArgumentNum(CLI, 1, Output, 0, NULL);
+        uint64_t LogFileArg        = CLIGetMatchingArgumentNum(CLI, 1, LogFile, 0, NULL);
         
         char *InputPath            = CLIGetArgumentResult(CLI, InputFileArg);
         char *OutputPath           = CLIGetArgumentResult(CLI, OutputFileArg);
+        char *LogFilePath          = CLIGetArgumentResult(CLI, LogFileArg);
         char *OutputExtension      = GetExtensionFromPath(OutputPath);
+        
+        BitInput_OpenFile(BitI, InputPath);
+        BitIOLog_OpenFile(LogFilePath);
+        BitOutput_OpenFile(BitO, OutputPath);
         
         if (strcasecmp(OutputExtension, "wav") == 0) {
             PCMSetOutputFileType(PCM, WAVFormat);
@@ -97,14 +103,12 @@ extern "C" {
         
         // So now we go ahead and mess around with the samples, looking for empty SampleGroups, then write it all out with the generic Write functions that I need to write.
         
-        BitInput_OpenFile(BitI, InputPath);
-        BitOutput_OpenFile(BitO, OutputPath);
-        
         IdentifyPCMFile(PCM, BitB);
         ParsePCMMetadata(PCM, BitB);
         
-        uint32_t **AudioSamples = NULL; // Lets read 4096 samples at a time.
-        AudioSamples = ExtractSamples(PCM, BitB, 4096);
+        //uint64_t ChannelIndependentSampleCount = PCM->NumChannelAgnosticSamples;
+        
+        uint32_t **AudioSamples = ExtractSamples(PCM, BitB, 4096);
         
         return 0;
     }
