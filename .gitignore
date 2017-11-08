@@ -8,12 +8,13 @@ BUILD/
 *.o
 *.plist
 *.xcbkptlist
-*.xcuserdatad/
+*.xcscheme
 *.xcuserstate
+*.xcuserdatad/
 *.xcworkspace/
+xcuserdata/
 .DS_Store
 ._*
-xcuserdata/
 
 # Windows stuff
 *.db
