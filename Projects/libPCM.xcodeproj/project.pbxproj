@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C03EDAF1F9F6DCD0033FDB1 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6951E8453E5005DEE50 /* libBitIO.a */; };
 		2C9E710C1F39659800295B3C /* libPCM.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C9E710B1F39659800295B3C /* libPCM.c */; };
-		2CAB0F901E948138007FAB96 /* libPCM.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE3124F1E7FBAA200E8A4E1 /* libPCM.h */; };
-		2CBF56CD1E84C54100453C02 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6951E8453E5005DEE50 /* libBitIO.a */; };
+		2CAB0F901E948138007FAB96 /* libPCM.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE3124F1E7FBAA200E8A4E1 /* libPCM.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CC490321F38094B00C71A65 /* W64Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CC4902F1F38094B00C71A65 /* W64Common.h */; };
 		2CC490331F38094B00C71A65 /* WAVCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CC490301F38094B00C71A65 /* WAVCommon.h */; };
 		2CC490341F38094B00C71A65 /* AIFCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CC490311F38094B00C71A65 /* AIFCommon.h */; };
@@ -28,7 +26,9 @@
 		2CC4904F1F3809EC00C71A65 /* PXMDecoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4904B1F3809EC00C71A65 /* PXMDecoder.c */; };
 		2CC490501F3809EC00C71A65 /* PXMEncoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4904C1F3809EC00C71A65 /* PXMEncoder.c */; };
 		2CD232291EB0ECED005E4D8C /* TrimSilence.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CD232281EB0ECED005E4D8C /* TrimSilence.c */; };
-		2CD4D6001EC31E98007F0619 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3065591E809042009F1A54 /* libPCM.a */; };
+		2CD571711FB9007800D4B282 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6951E8453E5005DEE50 /* libBitIO.a */; };
+		2CD571791FB9011800D4B282 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6951E8453E5005DEE50 /* libBitIO.a */; };
+		2CD5717A1FB9011C00D4B282 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3065591E809042009F1A54 /* libPCM.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +37,27 @@
 			containerPortal = 2C0FB68D1E8453E5005DEE50 /* BitIO.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 2C419FD51E5B00CC00FC804F;
+			remoteInfo = libBitIO;
+		};
+		2CD571721FB900EA00D4B282 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C0FB68D1E8453E5005DEE50 /* BitIO.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C419FD41E5B00CC00FC804F;
+			remoteInfo = libBitIO;
+		};
+		2CD571741FB9010800D4B282 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2CE8516F1DA99758004F3B90 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C3065581E809042009F1A54;
+			remoteInfo = libPCM;
+		};
+		2CD571761FB9010800D4B282 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C0FB68D1E8453E5005DEE50 /* BitIO.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C419FD41E5B00CC00FC804F;
 			remoteInfo = libBitIO;
 		};
 /* End PBXContainerItemProxy section */
@@ -83,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CBF56CD1E84C54100453C02 /* libBitIO.a in Frameworks */,
+				2CD571711FB9007800D4B282 /* libBitIO.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,8 +112,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C03EDAF1F9F6DCD0033FDB1 /* libBitIO.a in Frameworks */,
-				2CD4D6001EC31E98007F0619 /* libPCM.a in Frameworks */,
+				2CD5717A1FB9011C00D4B282 /* libPCM.a in Frameworks */,
+				2CD571791FB9011800D4B282 /* libBitIO.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,13 +251,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CC490381F38095700C71A65 /* BMPCommon.h in Headers */,
-				2CC490321F38094B00C71A65 /* W64Common.h in Headers */,
-				2CC490331F38094B00C71A65 /* WAVCommon.h in Headers */,
-				2CC490341F38094B00C71A65 /* AIFCommon.h in Headers */,
 				2CAB0F901E948138007FAB96 /* libPCM.h in Headers */,
-				2CC490371F38095700C71A65 /* PXMCommon.h in Headers */,
 				2CC4903A1F38096300C71A65 /* libPCMTypes.h in Headers */,
+				2CC490341F38094B00C71A65 /* AIFCommon.h in Headers */,
+				2CC490331F38094B00C71A65 /* WAVCommon.h in Headers */,
+				2CC490321F38094B00C71A65 /* W64Common.h in Headers */,
+				2CC490381F38095700C71A65 /* BMPCommon.h in Headers */,
+				2CC490371F38095700C71A65 /* PXMCommon.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +275,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2CD571731FB900EA00D4B282 /* PBXTargetDependency */,
 			);
 			name = libPCM;
 			productName = libPCM;
@@ -271,6 +293,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				2CD571751FB9010800D4B282 /* PBXTargetDependency */,
+				2CD571771FB9010800D4B282 /* PBXTargetDependency */,
 			);
 			name = TrimSilence;
 			productName = TrimSilence;
@@ -337,17 +361,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CC490441F3809E400C71A65 /* W64Decoder.c in Sources */,
-				2CC4904F1F3809EC00C71A65 /* PXMDecoder.c in Sources */,
-				2C9E710C1F39659800295B3C /* libPCM.c in Sources */,
-				2CC490481F3809E400C71A65 /* WAVEncoder.c in Sources */,
-				2CC490451F3809E400C71A65 /* W64Encoder.c in Sources */,
-				2CC490431F3809E400C71A65 /* WAVDecoder.c in Sources */,
-				2CC4904E1F3809EC00C71A65 /* BMPEncoder.c in Sources */,
-				2CC4904D1F3809EC00C71A65 /* BMPDecoder.c in Sources */,
 				2CC490461F3809E400C71A65 /* AIFDecoder.c in Sources */,
-				2CC490501F3809EC00C71A65 /* PXMEncoder.c in Sources */,
 				2CC490471F3809E400C71A65 /* AIFEncoder.c in Sources */,
+				2CC490431F3809E400C71A65 /* WAVDecoder.c in Sources */,
+				2CC490481F3809E400C71A65 /* WAVEncoder.c in Sources */,
+				2CC490441F3809E400C71A65 /* W64Decoder.c in Sources */,
+				2CC490451F3809E400C71A65 /* W64Encoder.c in Sources */,
+				2CC4904F1F3809EC00C71A65 /* PXMDecoder.c in Sources */,
+				2CC490501F3809EC00C71A65 /* PXMEncoder.c in Sources */,
+				2CC4904D1F3809EC00C71A65 /* BMPDecoder.c in Sources */,
+				2CC4904E1F3809EC00C71A65 /* BMPEncoder.c in Sources */,
+				2C9E710C1F39659800295B3C /* libPCM.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +384,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2CD571731FB900EA00D4B282 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libBitIO;
+			targetProxy = 2CD571721FB900EA00D4B282 /* PBXContainerItemProxy */;
+		};
+		2CD571751FB9010800D4B282 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C3065581E809042009F1A54 /* libPCM */;
+			targetProxy = 2CD571741FB9010800D4B282 /* PBXContainerItemProxy */;
+		};
+		2CD571771FB9010800D4B282 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libBitIO;
+			targetProxy = 2CD571761FB9010800D4B282 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2C30655B1E809042009F1A54 /* Debug */ = {
