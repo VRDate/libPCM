@@ -9,15 +9,16 @@ extern "C" {
 #define TrimSilenceVersion "0.1.0"
     
     enum CommandLineSwitchNames {
-        Input        = 0,
-        Output       = 1,
-        LogFile      = 2,
-        SilenceLevel = 3,
-        Help         = 4,
+        Input         = 0,
+        Output        = 1,
+        LogFile       = 2,
+        SilenceLevel  = 3,
+        Help          = 4,
+        NumSwitches   = 5,
     };
     
     CommandLineIO *SetTrimSilenceOptions(void) {
-        CommandLineIO     *CLI = CommandLineIO_Init(5);
+        CommandLineIO *CLI = CommandLineIO_Init(NumSwitches);
         
         CLISetName(CLI, "TrimSilence");
         CLISetVersion(CLI, TrimSilenceVersion);
@@ -25,19 +26,18 @@ extern "C" {
         CLISetCopyright(CLI, "2017 - 2017");
         CLISetDescription(CLI, "PCM silence remover written from scratch in modern C");
         CLISetLicense(CLI, "Revised BSD", "Permissive open source license", "https://opensource.org/licenses/BSD-3-Clause", false);
-        CLISetMinArguments(CLI, 3);
-        CLISetHelpSwitch(CLI, Help);
+        CLISetMinOptions(CLI, 3);
         
         CLISetSwitchFlag(CLI, Input, "Input");
-        CLISetSwitchDescription(CLI, Input, "Input file or stdin with: -Input -");
+        CLISetSwitchDescription(CLI, Input, "Input file or stdin");
         CLISetSwitchType(CLI, Input, SingleSwitchWithResult);
         
         CLISetSwitchFlag(CLI, Output, "Output");
-        CLISetSwitchDescription(CLI, Output, "Output file or stdout with: -Output -");
+        CLISetSwitchDescription(CLI, Output, "Output file or stdout");
         CLISetSwitchType(CLI, Output, SingleSwitchWithResult);
         
         CLISetSwitchFlag(CLI, LogFile, "LogFile");
-        CLISetSwitchDescription(CLI, LogFile, "Where should the logs be written? if unspecified, logs are written to STDERR");
+        CLISetSwitchDescription(CLI, LogFile, "Where should the logs be written? default is STDERR");
         CLISetSwitchType(CLI, LogFile, SingleSwitchWithResult);
         
         CLISetSwitchFlag(CLI, SilenceLevel, "SilenceLevel");
@@ -47,6 +47,7 @@ extern "C" {
         CLISetSwitchFlag(CLI, Help, "Help");
         CLISetSwitchDescription(CLI, Help, "Prints all the command line options");
         CLISetSwitchType(CLI, Help, SingleSwitchNoResult);
+        CLISetHelpSwitch(CLI, Help);
         
         return CLI;
     }
@@ -66,21 +67,21 @@ extern "C" {
     }
     
     int main(int argc, const char *argv[]) {
-        CommandLineIO *CLI   = SetTrimSilenceOptions();
-        BitInput      *BitI  = BitInput_Init();
-        BitOutput     *BitO  = BitOutput_Init();
-        PCMFile       *PCM   = PCMFileInit();
-        BitBuffer     *BitB  = BitBuffer_Init(40);
+        CommandLineIO *CLI         = SetTrimSilenceOptions();
+        BitInput      *BitI        = BitInput_Init();
+        BitOutput     *BitO        = BitOutput_Init();
+        PCMFile       *PCM         = PCMFile_Init();
+        BitBuffer     *BitB        = BitBuffer_Init(40);
         
-        ParseCommandLineArguments(CLI, argc, argv);
+        ParseCommandLineOptions(CLI, argc, argv);
         
-        uint64_t InputFileArg      = CLIGetMatchingArgumentNum(CLI, 1, Input, 0, NULL);
-        uint64_t OutputFileArg     = CLIGetMatchingArgumentNum(CLI, 1, Output, 0, NULL);
-        uint64_t LogFileArg        = CLIGetMatchingArgumentNum(CLI, 1, LogFile, 0, NULL);
+        uint64_t InputFileArg      = CLIGetOptionNum(CLI, Input, 0, NULL);
+        uint64_t OutputFileArg     = CLIGetOptionNum(CLI, Output, 0, NULL);
+        uint64_t LogFileArg        = CLIGetOptionNum(CLI, LogFile, 0, NULL);
         
-        char *InputPath            = CLIGetArgumentResult(CLI, InputFileArg);
-        char *OutputPath           = CLIGetArgumentResult(CLI, OutputFileArg);
-        char *LogFilePath          = CLIGetArgumentResult(CLI, LogFileArg);
+        char *InputPath            = CLIGetOptionResult(CLI, InputFileArg);
+        char *OutputPath           = CLIGetOptionResult(CLI, OutputFileArg);
+        char *LogFilePath          = CLIGetOptionResult(CLI, LogFileArg);
         char *OutputExtension      = GetExtensionFromPath(OutputPath);
         
         BitInput_OpenFile(BitI, InputPath);
@@ -103,12 +104,12 @@ extern "C" {
         
         // So now we go ahead and mess around with the samples, looking for empty SampleGroups, then write it all out with the generic Write functions that I need to write.
         
-        IdentifyPCMFile(PCM, BitB);
-        ParsePCMMetadata(PCM, BitB);
+        PCMFile_Identify(PCM, BitB);
+        PCMFile_ParseMetadata(PCM, BitB);
         
-        //uint64_t ChannelIndependentSampleCount = PCM->NumChannelAgnosticSamples;
+        // Honestly, fuck this; I'm just gonna read all the samples in at once.
         
-        uint32_t **AudioSamples = ExtractSamples(PCM, BitB, 4096);
+        uint32_t **AudioSamples = PCM_ExtractSamples(PCM, BitB, PCMGetNumSamples(PCM));
         
         return 0;
     }
