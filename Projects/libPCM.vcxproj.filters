@@ -13,51 +13,78 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Image">
+      <UniqueIdentifier>{9652247a-3ac0-4f65-b93c-d82ced25eb0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Audio">
+      <UniqueIdentifier>{7388437e-01f5-446e-9a57-d1c0c1308082}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Private">
+      <UniqueIdentifier>{e8dee0c2-f468-480b-8440-5502c94ffe8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Private\Image">
+      <UniqueIdentifier>{83546ff3-1ef2-44ef-9a7b-5ae84cb30c11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Private\Audio">
+      <UniqueIdentifier>{76fd2abb-6f10-48df-95be-881eff5aa84c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\libPCM\include\libPCM.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\libPCM\include\PCMTypes.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\libPCM\include\Private\libPCMTypes.h">
+      <Filter>Header Files\Private</Filter>
     </ClInclude>
-    <ClInclude Include="..\libPCM\include\PXMCommon.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\libPCM\include\Private\Image\BMPCommon.h">
+      <Filter>Header Files\Private\Image</Filter>
     </ClInclude>
-    <ClInclude Include="..\libPCM\include\W64Common.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\libPCM\include\Private\Image\PXMCommon.h">
+      <Filter>Header Files\Private\Image</Filter>
     </ClInclude>
-    <ClInclude Include="..\libPCM\include\WAVCommon.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\libPCM\include\Private\Audio\AIFCommon.h">
+      <Filter>Header Files\Private\Audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\libPCM\include\AIFCommon.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\libPCM\include\Private\Audio\W64Common.h">
+      <Filter>Header Files\Private\Audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\libPCM\include\BMPCommon.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\libPCM\include\Private\Audio\WAVCommon.h">
+      <Filter>Header Files\Private\Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\libPCM\src\W64Encoder.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libPCM\src\WAVDecoder.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libPCM\src\WAVEncoder.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libPCM\src\AIFDecoder.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libPCM\src\AIFEncoder.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\libPCM\src\libPCM.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\libPCM\src\W64Decoder.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\libPCM\src\Image\BMPDecoder.c">
+      <Filter>Source Files\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libPCM\src\Image\BMPEncoder.c">
+      <Filter>Source Files\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libPCM\src\Image\PXMDecoder.c">
+      <Filter>Source Files\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libPCM\src\Image\PXMEncoder.c">
+      <Filter>Source Files\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libPCM\src\Audio\AIFDecoder.c">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libPCM\src\Audio\AIFEncoder.c">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libPCM\src\Audio\W64Decoder.c">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libPCM\src\Audio\W64Encoder.c">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libPCM\src\Audio\WAVDecoder.c">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libPCM\src\Audio\WAVEncoder.c">
+      <Filter>Source Files\Audio</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
