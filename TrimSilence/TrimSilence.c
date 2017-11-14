@@ -95,14 +95,10 @@ extern "C" {
             PCMSetOutputFileType(PCM, WAVFormat);
         } else if (strcasecmp(OutputExtension, "w64") == 0) {
             PCMSetOutputFileType(PCM, W64Format);
-        } else if (strcasecmp(OutputExtension, "aif") == 0) {
-            PCMSetOutputFileType(PCM, AIFFormat);
-        } else if (strcasecmp(OutputExtension, "aiff") == 0) {
-            PCMSetOutputFileType(PCM, AIFFormat);
-        } else if (strcasecmp(OutputExtension, "aifc") == 0) {
+        } else if ((strcasecmp(OutputExtension, "aif") || strcasecmp(OutputExtension, "aiff") || strcasecmp(OutputExtension, "aifc"))  == 0) {
             PCMSetOutputFileType(PCM, AIFFormat);
         } else {
-            BitIOLog(LOG_ERROR, "TrimSilence", __func__, "Unrecognized extension: %s", OutputExtension);
+            BitIOLog(LOG_ERROR, "TrimSilence", __func__, "Unrecognized Output file extension: %s", OutputExtension);
         }
         
         // So now we go ahead and mess around with the samples, looking for empty SampleGroups, then write it all out with the generic Write functions that I need to write.
@@ -112,7 +108,15 @@ extern "C" {
         
         // Honestly, fuck this; I'm just gonna read all the samples in at once.
         
-        uint32_t **AudioSamples = PCM_ExtractSamples(PCM, BitB, PCMGetNumSamples(PCM));
+        uint64_t NumSamples  = PCMGetNumSamples(PCM);
+        uint64_t NumChannels = PCMGetNumChannels(PCM);
+        uint8_t  BitDepth    = PCMGetBitDepth(PCM);
+        
+        uint32_t **ExtractedSamples = calloc(NumSamples * NumChannels, Bits2Bytes(BitDepth, Yes));
+        
+        PCM_ExtractSamples(PCM, BitB, PCMGetNumSamples(PCM), ExtractedSamples);
+        
+        free(ExtractedSamples);
         
         return 0;
     }
