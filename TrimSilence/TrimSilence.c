@@ -1,4 +1,5 @@
-    #include "../Dependencies/BitIO/libBitIO/include/CommandLineIO.h"
+#include "../Dependencies/BitIO/libBitIO/include/BitIO.h"
+#include "../Dependencies/BitIO/libBitIO/include/CommandLineIO.h"
 
 #include "../libPCM/include/libPCM.h"
 
@@ -8,16 +9,16 @@ extern "C" {
     
 #define TrimSilenceVersion "0.1.0"
     
-    enum CommandLineSwitchNames {
+    typedef enum CommandLineSwitches { // CommandLineSwitchNames
         Input         = 0,
         Output        = 1,
         LogFile       = 2,
         SilenceLevel  = 3,
         Help          = 4,
         NumSwitches   = 5,
-    };
+    } CommandLineSwitches;
     
-    CommandLineIO *SetTrimSilenceOptions(void) {
+    static CommandLineIO *SetTrimSilenceOptions(void) {
         CommandLineIO *CLI = CommandLineIO_Init(NumSwitches);
         
         CLISetName(CLI, "TrimSilence");
@@ -74,6 +75,8 @@ extern "C" {
         BitBuffer     *BitB        = BitBuffer_Init(40);
         
         ParseCommandLineOptions(CLI, argc, argv);
+        
+        PrintCommandLineOptions(CLI);
         
         uint64_t InputFileArg      = CLIGetOptionNum(CLI, Input, 0, NULL);
         uint64_t OutputFileArg     = CLIGetOptionNum(CLI, Output, 0, NULL);
