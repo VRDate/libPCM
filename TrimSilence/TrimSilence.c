@@ -67,12 +67,21 @@ extern "C" {
         }
     }
     
+    static void PrintARGV(int argc, const char **argv) {
+        printf("Argv Arguments: %d%s", argc, BitIOLineEnding);
+        for (int32_t Argument = 0L; Argument < argc; Argument++) {
+            printf("Argument Number %d, ArgumentString %s%s", Argument, argv[Argument], BitIOLineEnding);
+        }
+    }
+    
     int main(int argc, const char *argv[]) {
         CommandLineIO *CLI         = SetTrimSilenceOptions();
         BitInput      *BitI        = BitInput_Init();
         BitOutput     *BitO        = BitOutput_Init();
         PCMFile       *PCM         = PCMFile_Init();
         BitBuffer     *BitB        = BitBuffer_Init(40);
+        
+        PrintARGV(argc, argv);
         
         ParseCommandLineOptions(CLI, argc, argv);
         
@@ -118,7 +127,7 @@ extern "C" {
         
         free(ExtractedSamples);
         
-        return 0;
+        return EXIT_SUCCESS;
     }
     
 #ifdef __cplusplus
