@@ -31,23 +31,23 @@ extern "C" {
         
         CLISetSwitchFlag(CLI, Input, "Input");
         CLISetSwitchDescription(CLI, Input, "Input file or stdin");
-        CLISetSwitchType(CLI, Input, SingleSwitchWithResult);
+        CLISetSwitchType(CLI, Input, SwitchCantHaveSlaves);
         
         CLISetSwitchFlag(CLI, Output, "Output");
         CLISetSwitchDescription(CLI, Output, "Output file or stdout");
-        CLISetSwitchType(CLI, Output, SingleSwitchWithResult);
+        CLISetSwitchType(CLI, Output, SwitchCantHaveSlaves);
         
         CLISetSwitchFlag(CLI, LogFile, "LogFile");
         CLISetSwitchDescription(CLI, LogFile, "Where should the logs be written? default is STDERR");
-        CLISetSwitchType(CLI, LogFile, SingleSwitchWithResult);
+        CLISetSwitchType(CLI, LogFile, SwitchCantHaveSlaves);
         
         CLISetSwitchFlag(CLI, SilenceLevel, "SilenceLevel");
         CLISetSwitchDescription(CLI, SilenceLevel, "Set the threshhold by absolute value");
-        CLISetSwitchType(CLI, SilenceLevel, SingleSwitchWithResult);
+        CLISetSwitchType(CLI, SilenceLevel, SwitchCantHaveSlaves);
         
         CLISetSwitchFlag(CLI, Help, "Help");
         CLISetSwitchDescription(CLI, Help, "Prints all the command line options");
-        CLISetSwitchType(CLI, Help, SingleSwitchNoResult);
+        CLISetSwitchType(CLI, Help, ExistentialSwitch);
         CLISetHelpSwitch(CLI, Help);
         
         return CLI;
@@ -68,9 +68,9 @@ extern "C" {
     }
     
     static void PrintARGV(int argc, const char **argv) {
-        printf("Argv Arguments: %d%s", argc, BitIOLineEnding);
+        printf("Argv Arguments: %d%s", argc, BitIONewLine);
         for (int32_t Argument = 0L; Argument < argc; Argument++) {
-            printf("Argument Number %d, ArgumentString %s%s", Argument, argv[Argument], BitIOLineEnding);
+            printf("Argument Number %d, ArgumentString %s%s", Argument, argv[Argument], BitIONewLine);
         }
     }
     
@@ -108,7 +108,7 @@ extern "C" {
         } else if ((strcasecmp(OutputExtension, "aif") || strcasecmp(OutputExtension, "aiff") || strcasecmp(OutputExtension, "aifc"))  == 0) {
             PCMSetOutputFileType(PCM, AIFFormat);
         } else {
-            BitIOLog(LOG_ERROR, "TrimSilence", __func__, "Unrecognized Output file extension: %s", OutputExtension);
+            BitIOLog(BitIOLog_ERROR, "TrimSilence", __func__, "Unrecognized Output file extension: %s", OutputExtension);
         }
         
         // So now we go ahead and mess around with the samples, looking for empty SampleGroups, then write it all out with the generic Write functions that I need to write.
