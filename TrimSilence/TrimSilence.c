@@ -75,30 +75,31 @@ extern "C" {
     }
     
     int main(int argc, const char *argv[]) {
-        CommandLineIO *CLI         = SetTrimSilenceOptions();
-        BitInput      *BitI        = BitInput_Init();
-        BitOutput     *BitO        = BitOutput_Init();
-        PCMFile       *PCM         = PCMFile_Init();
-        BitBuffer     *BitB        = BitBuffer_Init(40);
+        CommandLineIO *CLI          = SetTrimSilenceOptions();
+        BitInput      *BitI         = BitInput_Init();
+        BitOutput     *BitO         = BitOutput_Init();
+        PCMFile       *PCM          = PCMFile_Init();
+        BitBuffer     *BitB         = BitBuffer_Init(40);
         
-        PrintARGV(argc, argv);
+        // PrintARGV(argc, argv);
         
         ParseCommandLineOptions(CLI, argc, argv);
         
         PrintCommandLineOptions(CLI);
         
-        uint64_t InputFileArg      = CLIGetOptionNum(CLI, Input, 0, NULL);
-        uint64_t OutputFileArg     = CLIGetOptionNum(CLI, Output, 0, NULL);
-        uint64_t LogFileArg        = CLIGetOptionNum(CLI, LogFile, 0, NULL);
+        uint64_t InputFileArg       = CLIGetOptionNum(CLI, Input, 0, NULL);
+        uint64_t OutputFileArg      = CLIGetOptionNum(CLI, Output, 0, NULL);
+        uint64_t LogFileArg         = CLIGetOptionNum(CLI, LogFile, 0, NULL);
         
-        char *InputPath            = CLIGetOptionResult(CLI, InputFileArg);
-        char *OutputPath           = CLIGetOptionResult(CLI, OutputFileArg);
-        char *LogFilePath          = CLIGetOptionResult(CLI, LogFileArg);
-        char *OutputExtension      = GetExtensionFromPath(OutputPath);
+        char *InputPath             = CLIGetOptionResult(CLI, InputFileArg);
+        char *OutputPath            = CLIGetOptionResult(CLI, OutputFileArg);
+        char *LogFilePath           = CLIGetOptionResult(CLI, LogFileArg);
+        char *OutputExtension       = GetExtensionFromPath(OutputPath);
         
         BitInput_OpenFile(BitI, InputPath);
         BitIOLog_OpenFile(LogFilePath);
         BitOutput_OpenFile(BitO, OutputPath);
+         
         
         if (strcasecmp(OutputExtension, "wav") == 0) {
             PCMSetOutputFileType(PCM, WAVFormat);
@@ -117,9 +118,9 @@ extern "C" {
         
         // Honestly, fuck this; I'm just gonna read all the samples in at once.
         
-        uint64_t NumSamples  = PCMGetNumSamples(PCM);
-        uint64_t NumChannels = PCMGetNumChannels(PCM);
-        uint8_t  BitDepth    = PCMGetBitDepth(PCM);
+        uint64_t NumSamples         = PCMGetNumSamples(PCM);
+        uint64_t NumChannels        = PCMGetNumChannels(PCM);
+        uint8_t  BitDepth           = PCMGetBitDepth(PCM);
         
         uint32_t **ExtractedSamples = calloc(NumSamples * NumChannels, Bits2Bytes(BitDepth, Yes));
         
