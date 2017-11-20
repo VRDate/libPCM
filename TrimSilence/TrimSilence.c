@@ -81,10 +81,9 @@ extern "C" {
         PCMFile       *PCM          = PCMFile_Init();
         BitBuffer     *BitB         = BitBuffer_Init(40);
         
-        // PrintARGV(argc, argv);
-        
         ParseCommandLineOptions(CLI, argc, argv);
         
+        // PrintARGV(argc, argv);
         PrintCommandLineOptions(CLI);
         
         uint64_t InputFileArg       = CLIGetOptionNum(CLI, Input, 0, NULL);
