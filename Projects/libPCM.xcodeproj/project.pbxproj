@@ -100,11 +100,11 @@
 		2CBA986F1FC26A6000AED24F = {
 			isa = PBXGroup;
 			children = (
+				2CBA98D11FC26D8800AED24F /* Frameworks */,
 				2CBA98C31FC26BA200AED24F /* Dependencies */,
 				2CBA98971FC26AF800AED24F /* libPCM */,
 				2CBA98D61FC26DD100AED24F /* TrimSilence */,
 				2CBA98791FC26A6000AED24F /* Products */,
-				2CBA98D11FC26D8800AED24F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
