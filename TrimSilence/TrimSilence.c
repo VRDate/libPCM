@@ -78,10 +78,7 @@ extern "C" {
         PCMFile       *PCM          = PCMFile_Init();
         BitBuffer     *BitB         = BitBuffer_Init(40);
         
-        //BitIOLog(BitIOLog_DEBUG, BitIOLibraryName, __func__, "CommandLineIO Size", sizeof(CommandLineIO));
-        
         ParseCommandLineOptions(CLI, argc, argv);
-        //PrintCommandLineOptions(CLI);
         
         int64_t InputFileOption     = CLIGetOptionNum(CLI, Input, 0, NULL);
         int64_t OutputFileOption    = CLIGetOptionNum(CLI, Output, 0, NULL);
