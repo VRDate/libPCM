@@ -25,8 +25,8 @@ extern "C" {
         CLISetVersion(CLI, TrimSilenceVersion);
         CLISetAuthor(CLI, "BumbleBritches57");
         CLISetCopyright(CLI, "2017 - 2017");
-        CLISetDescription(CLI, "PCM silence remover written from scratch in modern C");
-        CLISetLicense(CLI, "Revised BSD", "Permissive open source license", "https://opensource.org/licenses/BSD-3-Clause", false);
+        CLISetDescription(CLI, "Removes leading and trailing silence");
+        CLISetLicense(CLI, "Revised BSD", "Permissive license", "https://opensource.org/licenses/BSD-3-Clause", No);
         CLISetMinOptions(CLI, 3);
         
         CLISetSwitchFlag(CLI, Input, "Input");
@@ -67,11 +67,8 @@ extern "C" {
         }
     }
     
-    static void PrintARGV(int argc, const char **argv) {
-        printf("Argv Arguments: %d%s", argc, BitIONewLine);
-        for (int32_t Argument = 0L; Argument < argc; Argument++) {
-            printf("Argument Number %d, ArgumentString %s%s", Argument, argv[Argument], BitIONewLine);
-        }
+    int64_t ConvertSilenceLevel2Integer(char *Level) {
+        return atoll(Level);
     }
     
     int main(int argc, const char *argv[]) {
@@ -81,30 +78,33 @@ extern "C" {
         PCMFile       *PCM          = PCMFile_Init();
         BitBuffer     *BitB         = BitBuffer_Init(40);
         
+        //BitIOLog(BitIOLog_DEBUG, BitIOLibraryName, __func__, "CommandLineIO Size", sizeof(CommandLineIO));
+        
         ParseCommandLineOptions(CLI, argc, argv);
+        //PrintCommandLineOptions(CLI);
         
-        // PrintARGV(argc, argv);
-        PrintCommandLineOptions(CLI);
+        int64_t InputFileOption     = CLIGetOptionNum(CLI, Input, 0, NULL);
+        int64_t OutputFileOption    = CLIGetOptionNum(CLI, Output, 0, NULL);
+        int64_t LogFileOption       = CLIGetOptionNum(CLI, LogFile, 0, NULL);
+        int64_t SilenceLevelOption  = CLIGetOptionNum(CLI, SilenceLevel, 0, NULL);
         
-        uint64_t InputFileArg       = CLIGetOptionNum(CLI, Input, 0, NULL);
-        uint64_t OutputFileArg      = CLIGetOptionNum(CLI, Output, 0, NULL);
-        uint64_t LogFileArg         = CLIGetOptionNum(CLI, LogFile, 0, NULL);
-        
-        char *InputPath             = CLIGetOptionResult(CLI, InputFileArg);
-        char *OutputPath            = CLIGetOptionResult(CLI, OutputFileArg);
-        char *LogFilePath           = CLIGetOptionResult(CLI, LogFileArg);
+        char *InputPath             = CLIGetOptionResult(CLI, InputFileOption);
+        char *OutputPath            = CLIGetOptionResult(CLI, OutputFileOption);
         char *OutputExtension       = GetExtensionFromPath(OutputPath);
+        char *LogFilePath           = CLIGetOptionResult(CLI, LogFileOption);
+        char *SilenceLevelString    = CLIGetOptionResult(CLI, SilenceLevelOption);
+        int64_t SilenceValue        = ConvertSilenceLevel2Integer(SilenceLevelString);
         
         BitInput_OpenFile(BitI, InputPath);
         BitIOLog_OpenFile(LogFilePath);
         BitOutput_OpenFile(BitO, OutputPath);
          
         
-        if (strcasecmp(OutputExtension, "wav") == 0) {
+        if (strcasecmp(OutputExtension, ".wav") == 0) {
             PCMSetOutputFileType(PCM, WAVFormat);
-        } else if (strcasecmp(OutputExtension, "w64") == 0) {
+        } else if (strcasecmp(OutputExtension, ".w64") == 0) {
             PCMSetOutputFileType(PCM, W64Format);
-        } else if ((strcasecmp(OutputExtension, "aif") || strcasecmp(OutputExtension, "aiff") || strcasecmp(OutputExtension, "aifc"))  == 0) {
+        } else if ((strcasecmp(OutputExtension, ".aif") || strcasecmp(OutputExtension, ".aiff") || strcasecmp(OutputExtension, ".aifc"))  == 0) {
             PCMSetOutputFileType(PCM, AIFFormat);
         } else {
             BitIOLog(BitIOLog_ERROR, "TrimSilence", __func__, "Unrecognized Output file extension: %s", OutputExtension);
