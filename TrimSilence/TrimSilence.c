@@ -55,7 +55,7 @@ extern "C" {
     
     void RemoveEmptySamples(PCMFile *PCM, uint32_t NumChannels, uint32_t NumSamples, uint32_t **AudioSamples) {
         uint32_t  CurrentSampleIndex = 0UL;
-        uint8_t   BitDepth           = PCMGetBitDepth(PCM);
+        uint8_t   BitDepth           = PCM_GetBitDepth(PCM);
         uint32_t *CurrentSampleValue = calloc(NumChannels, NumSamples * Bits2Bytes(BitDepth, Yes));
         for (uint32_t Channel = 0UL; Channel < NumChannels; Channel++) {
             for (uint32_t Sample = 0UL; Sample < NumSamples; Sample++) {
@@ -98,11 +98,11 @@ extern "C" {
          
         
         if (strcasecmp(OutputExtension, ".wav") == 0) {
-            PCMSetOutputFileType(PCM, WAVFormat);
+            PCM_SetOutputFileType(PCM, WAVFormat);
         } else if (strcasecmp(OutputExtension, ".w64") == 0) {
-            PCMSetOutputFileType(PCM, W64Format);
+            PCM_SetOutputFileType(PCM, W64Format);
         } else if ((strcasecmp(OutputExtension, ".aif") || strcasecmp(OutputExtension, ".aiff") || strcasecmp(OutputExtension, ".aifc"))  == 0) {
-            PCMSetOutputFileType(PCM, AIFFormat);
+            PCM_SetOutputFileType(PCM, AIFFormat);
         } else {
             BitIOLog(BitIOLog_ERROR, "TrimSilence", __func__, "Unrecognized Output file extension: %s", OutputExtension);
         }
@@ -114,13 +114,13 @@ extern "C" {
         
         // Honestly, fuck this; I'm just gonna read all the samples in at once.
         
-        uint64_t NumSamples         = PCMGetNumSamples(PCM);
-        uint64_t NumChannels        = PCMGetNumChannels(PCM);
-        uint8_t  BitDepth           = PCMGetBitDepth(PCM);
+        uint64_t NumSamples         = PCM_GetNumSamples(PCM);
+        uint64_t NumChannels        = PCM_GetNumChannels(PCM);
+        uint8_t  BitDepth           = PCM_GetBitDepth(PCM);
         
         uint32_t **ExtractedSamples = calloc(NumSamples * NumChannels, Bits2Bytes(BitDepth, Yes));
         
-        PCM_ExtractSamples(PCM, BitB, PCMGetNumSamples(PCM), ExtractedSamples);
+        PCM_ExtractSamples(PCM, BitB, NumSamples, ExtractedSamples);
         
         free(ExtractedSamples);
         
